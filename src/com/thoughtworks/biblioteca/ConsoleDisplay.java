@@ -14,7 +14,8 @@ public class ConsoleDisplay {
         System.out.print(message);
     }
 
-    public void displayList(ArrayList<String> bookList) {
+    public void displayBookList(String columnHeader, ArrayList<String> bookList) {
+        System.out.println(columnHeader);
         System.out.print(bookList);
     }
 }

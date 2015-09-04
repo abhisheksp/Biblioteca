@@ -1,5 +1,8 @@
 package com.thoughtworks.biblioteca;
 
+import java.util.ArrayList;
+
+/* ConsoleDisplay takes a message or list that it prints to console */
 public class ConsoleDisplay {
     private String message;
 
@@ -9,5 +12,9 @@ public class ConsoleDisplay {
 
     public void display() {
         System.out.print(message);
+    }
+
+    public void displayList(ArrayList<String> bookList) {
+        System.out.print(bookList);
     }
 }

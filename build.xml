@@ -17,6 +17,7 @@
   <classpath>
     <pathelement location="lib/junit-4.12.jar"/>
     <pathelement location="lib/hamcrest-all-1.1.jar"/>
+    <pathelement location="lib/mockito-all-1.9.5.jar"/>
     <pathelement location="out"/>
   </classpath>
     <test name="com.thoughtworks.biblioteca.WelcomeMessageTest" todir="."/>

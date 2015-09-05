@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookList {
+public class BookList implements Option{
 
     ArrayList<Book> bookList = new ArrayList<Book>();
 
@@ -13,6 +13,8 @@ public class BookList {
     public void display() {
         String columnHeader = "Book"+"\t"+"Author"+"\t"+"Year Published"+"\n";
         System.out.print(columnHeader);
-        System.out.print(bookList);
+        for (Book book : bookList){
+            System.out.println(book);
+        }
     }
 }

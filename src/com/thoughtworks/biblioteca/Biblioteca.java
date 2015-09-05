@@ -1,6 +1,7 @@
 package com.thoughtworks.biblioteca;
 
 public class Biblioteca {
+
     WelcomeMessage welcomeMessage;
     BookList bookList;
 
@@ -9,7 +10,7 @@ public class Biblioteca {
         this.bookList = bookList;
     }
 
-    public void startApplication(){
+    public void startApplication() {
         welcomeMessage.display();
         bookList.display();
     }

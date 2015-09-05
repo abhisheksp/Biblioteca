@@ -1,7 +1,17 @@
 package com.thoughtworks.biblioteca;
 
-/**
- * Created by abhisp on 05/09/15.
- */
+import java.util.ArrayList;
+
 public class MainMenu {
+    private ArrayList<String> options;
+
+    public MainMenu(ArrayList<String> options) {
+        this.options = options;
+    }
+
+    public void displayOptions() {
+        for (String option : options) {
+            System.out.println(option);
+        }
+    }
 }

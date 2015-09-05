@@ -3,7 +3,6 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -24,12 +23,11 @@ public class MainMenuTest {
         System.setOut(System.out);
     }
 
-
     @Test
-    public void shouldDisplayListBooksOptionInitially(){
+    public void shouldDisplayListBooksOptionInitially() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        MainMenu mainMenu= new MainMenu(options);
+        MainMenu mainMenu = new MainMenu(options);
 
         mainMenu.displayOptions();
 

@@ -8,6 +8,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class MainMenuTest {
 
@@ -27,10 +29,24 @@ public class MainMenuTest {
     public void shouldDisplayListBooksOptionInitially() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        MainMenu mainMenu = new MainMenu(options);
+        InputReader inputReader = mock(InputReader.class);
+        MainMenu mainMenu = new MainMenu(options, inputReader);
 
-        mainMenu.displayOptions();
+        mainMenu.interactWithUser();
 
+        assertEquals("1. List Books\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldInvokeReadFromInputReaderAfterDisplayingOptions() {
+        ArrayList<String> options = new ArrayList<String>();
+        options.add("1. List Books");
+        InputReader inputReader = mock(InputReader.class);
+        MainMenu mainMenu = new MainMenu(options, inputReader);
+
+        mainMenu.interactWithUser();
+
+        verify(inputReader).read();
         assertEquals("1. List Books\n", outContent.toString());
     }
 }

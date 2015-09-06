@@ -3,7 +3,6 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -77,8 +76,8 @@ public class MainMenuTest {
 
         mainMenu.interactWithUser();
 
-        assertEquals("1. List Books\n"+"Book\tAuthor\tYear Published\n"+"Brief History of Time\tStephen Hawking\t1988\n"+
-                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n"+
+        assertEquals("1. List Books\n" + "Book\tAuthor\tYear Published\n" + "Brief History of Time\tStephen Hawking\t1988\n" +
+                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
                 "Seven Minutes\tIrving Wallace\t1969\n", outContent.toString());
     }
 }

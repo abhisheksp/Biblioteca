@@ -11,6 +11,10 @@ public class Book {
         this.year = year;
     }
 
+    public Book(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) return true;

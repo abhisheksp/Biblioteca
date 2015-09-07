@@ -11,10 +11,14 @@ public class Library implements MenuOption {
     }
 
     public void display() {
-        String columnHeader = "Book"+"\t"+"Author"+"\t"+"Year Published"+"\n";
+        String columnHeader = "Book" + "\t" + "Author" + "\t" + "Year Published" + "\n";
         System.out.print(columnHeader);
-        for (Book book : bookList){
+        for (Book book : bookList) {
             System.out.println(book);
         }
+    }
+
+    public void checkOutBook(Book book) {
+        bookList.remove(book);
     }
 }

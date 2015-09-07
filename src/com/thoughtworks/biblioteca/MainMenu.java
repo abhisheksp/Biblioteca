@@ -7,9 +7,9 @@ public class MainMenu {
 
     private ArrayList<String> options;
     private InputReader inputReader;
-    private Map<String, Option> optionsMap;
+    private Map<String, MenuOption> optionsMap;
 
-    public MainMenu(ArrayList<String> options, InputReader inputReader, Map<String, Option> optionsMap) {
+    public MainMenu(ArrayList<String> options, InputReader inputReader, Map<String, MenuOption> optionsMap) {
         this.options = options;
         this.inputReader = inputReader;
         this.optionsMap = optionsMap;

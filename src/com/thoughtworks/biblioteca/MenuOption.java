@@ -1,5 +1,5 @@
 package com.thoughtworks.biblioteca;
 
-public interface Option {
+public interface MenuOption {
     void display();
 }

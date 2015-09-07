@@ -1,7 +1,8 @@
 package com.thoughtworks.biblioteca;
 
 /* InvalidMenuOption takes an Invalid Message and displays it */
-public class InvalidMenuOption implements Option{
+public class InvalidMenuOption implements MenuOption {
+
     private String invalidMessage;
 
     public InvalidMenuOption(String invalidMessage) {

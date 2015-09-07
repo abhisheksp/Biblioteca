@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookList implements Option{
+public class BookList implements MenuOption {
 
     ArrayList<Book> bookList = new ArrayList<Book>();
 

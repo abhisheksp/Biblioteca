@@ -23,7 +23,7 @@ public class InvalidMenuOptionTest {
     }
 
     @Test
-    public void shouldDisplaySelectAValidOptionWhenAnInvalidOptionisChosen(){
+    public void shouldDisplaySelectAValidOptionWhenAnInvalidOptionIsChosen(){
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
 
         invalidMenuOption.display();

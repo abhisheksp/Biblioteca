@@ -34,6 +34,8 @@ public class BookListTest {
 
         bookList.display();
 
-        assertEquals("Book"+"\t"+"Author"+"\t"+"Year Published"+"\n"+books.toString(), outContent.toString());
+        assertEquals("Book\tAuthor\tYear Published\n" + "Brief History of Time\tStephen Hawking\t1988\n" +
+                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
+                "Seven Minutes\tIrving Wallace\t1969\n", outContent.toString());
     }
 }

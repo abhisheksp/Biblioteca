@@ -18,7 +18,10 @@ public class MainMenu {
     public void interactWithUser() {
         displayOptions();
         String input = inputReader.read();
-        optionsMap.get(input).display();
+        if (optionsMap.containsKey(input))
+            optionsMap.get(input).display();
+        else
+            optionsMap.get("invalid").display();
     }
 
     private void displayOptions() {

@@ -9,6 +9,6 @@ public class WelcomeMessage {
     }
 
     public void display() {
-        System.out.print(message);
+        System.out.println(message);
     }
 }

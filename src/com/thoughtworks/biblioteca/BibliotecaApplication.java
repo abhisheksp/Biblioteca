@@ -3,6 +3,11 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 public class BibliotecaApplication {
+    WelcomeMessage welcomeMessage;
+
+    public BibliotecaApplication() {
+        welcomeMessage = new WelcomeMessage("Sup?");
+    }
 
     public ArrayList<Book> booklist() {
         ArrayList<Book> books = new ArrayList<Book>();
@@ -10,5 +15,9 @@ public class BibliotecaApplication {
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         return books;
+    }
+
+    public void start() {
+        welcomeMessage.display();
     }
 }

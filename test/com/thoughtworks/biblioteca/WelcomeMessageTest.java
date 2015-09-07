@@ -22,7 +22,7 @@ public class WelcomeMessageTest {
 
     @Test
     public void shouldDisplayWelcomeMessageWhenWelcomeStringIsPassed() {
-        WelcomeMessage welcomeMessage = new WelcomeMessage("Welcome\n");
+        WelcomeMessage welcomeMessage = new WelcomeMessage("Welcome");
 
         welcomeMessage.display();
 

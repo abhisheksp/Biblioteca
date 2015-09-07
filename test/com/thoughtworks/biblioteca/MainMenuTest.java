@@ -29,9 +29,14 @@ public class MainMenuTest {
 
     @Test
     public void shouldDisplayListBooksOptionInitially() {
+        exit.expectSystemExit();
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        InputReader inputReader = mock(InputReader.class);
+        String input = "2";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inContent);
+        Scanner scanner = new Scanner(System.in);
+        InputReader inputReader = new InputReader(scanner);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Library library = mock(Library.class);
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
@@ -46,9 +51,14 @@ public class MainMenuTest {
 
     @Test
     public void shouldInvokeReadFromInputReaderAfterDisplayingOptions() {
+        exit.expectSystemExit();
+        String input = "2";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inContent);
+        Scanner scanner = new Scanner(System.in);
+        InputReader inputReader = new InputReader(scanner);
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
@@ -56,38 +66,11 @@ public class MainMenuTest {
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
 
+
         mainMenu.interactWithUser();
 
         verify(inputReader).read();
         assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldDelegateToBookListDisplayWhenOptionOneIsChosen() {
-        ArrayList<String> options = new ArrayList<String>();
-        options.add("1. List Books");
-        String input = "1";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
-        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
-        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
-        Library library = new Library(books);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
-        Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        optionsMap.put("1", library);
-        optionsMap.put("invalid", invalidMenuOption);
-        MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
-        System.setIn(System.in);
-
-        mainMenu.interactWithUser();
-
-        assertEquals("1. List Books\n" + "Book\tAuthor\tYear Published\n" + "Brief History of Time\tStephen Hawking\t1988\n" +
-                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
-                "Seven Minutes\tIrving Wallace\t1969\n", outContent.toString());
     }
 
     @Test

@@ -2,11 +2,11 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookList implements MenuOption {
+public class Library implements MenuOption {
 
     ArrayList<Book> bookList = new ArrayList<Book>();
 
-    public BookList(ArrayList<Book> bookList) {
+    public Library(ArrayList<Book> bookList) {
         this.bookList = bookList;
     }
 

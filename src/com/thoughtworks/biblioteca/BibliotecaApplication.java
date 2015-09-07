@@ -8,19 +8,19 @@ import java.util.Scanner;
 public class BibliotecaApplication {
 
     WelcomeMessage welcomeMessage;
-    BookList bookList;
+    Library library;
     MainMenu mainMenu;
 
     public BibliotecaApplication() {
         welcomeMessage = new WelcomeMessage("Sup?");
-        bookList = new BookList(bookList());
+        library = new Library(bookList());
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         Scanner scanner = new Scanner(System.in);
         InputReader inputReader = new InputReader(scanner);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        optionsMap.put("1", bookList);
+        optionsMap.put("1", library);
         optionsMap.put("invalid", invalidMenuOption);
         mainMenu = new MainMenu(options, inputReader, optionsMap);
     }

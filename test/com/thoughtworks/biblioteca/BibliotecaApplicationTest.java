@@ -41,6 +41,15 @@ public class BibliotecaApplicationTest {
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
 
-        assertEquals(books.toString(), bibliotecaApplication.booklist().toString());
+        assertEquals(books.toString(), bibliotecaApplication.bookList().toString());
+    }
+
+    @Test
+    public void shouldDisplayMenuOptionsAfterWelcomeMessage() {
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication();
+
+        bibliotecaApplication.start();
+
+        assertEquals("blah", outContent.toString());
     }
 }

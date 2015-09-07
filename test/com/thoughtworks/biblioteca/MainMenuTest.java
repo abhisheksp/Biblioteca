@@ -1,6 +1,8 @@
 package com.thoughtworks.biblioteca;
 
 import org.junit.*;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
+
 import java.io.*;
 import java.util.*;
 
@@ -11,6 +13,9 @@ import static org.mockito.Mockito.verify;
 public class MainMenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Before
     public void setupStreams() {
@@ -105,5 +110,28 @@ public class MainMenuTest {
         mainMenu.interactWithUser();
 
         Assert.assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldKeepDiplayingOptionsUntilQuitOptionIsChosen() {
+        exit.expectSystemExit();
+
+        ArrayList<String> options = new ArrayList<String>();
+        options.add("1. List Books");
+        options.add("2. Quit");
+        String input = "2";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inContent);
+        Scanner scanner = new Scanner(System.in);
+        InputReader inputReader = new InputReader(scanner);
+        BookList bookList = mock(BookList.class);
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
+        Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
+        optionsMap.put("1", bookList);
+        optionsMap.put("invalid", invalidMenuOption);
+        MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
+        System.setIn(System.in);
+
+        mainMenu.interactWithUser();
     }
 }

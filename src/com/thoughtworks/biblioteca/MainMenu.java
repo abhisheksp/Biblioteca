@@ -18,7 +18,9 @@ public class MainMenu {
     public void interactWithUser() {
         displayOptions();
         String input = inputReader.read();
-        if (optionsMap.containsKey(input))
+        if(input.equals("2"))
+            System.exit(1);
+        else if (optionsMap.containsKey(input))
             optionsMap.get(input).display();
         else
             optionsMap.get("invalid").display();

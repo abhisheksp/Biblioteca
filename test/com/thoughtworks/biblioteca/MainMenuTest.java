@@ -8,6 +8,7 @@ import java.util.*;
 import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class MainMenuTest {
 
@@ -27,98 +28,61 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldDisplayListBooksOptionInitially() {
-        exit.expectSystemExit();
-        ArrayList<String> options = new ArrayList<String>();
-        options.add("1. List Books");
-        String input = "2";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
-        Library library = mock(Library.class);
-        Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
-        optionsMap.put("1", listBooksMenuOption);
-        optionsMap.put("invalid", invalidMenuOption);
-        MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
-
-        mainMenu.interactWithUser();
-
-        assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
-    }
-
-    @Test
     public void shouldInvokeReadFromInputReaderAfterDisplayingOptions() {
         exit.expectSystemExit();
-        String input = "2";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
+        InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
+        ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
 
-
+        when(inputReader.read()).thenReturn("2");
         mainMenu.interactWithUser();
 
         verify(inputReader).read();
-        assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
     }
 
     @Test
-    public void shouldDisplayInvalidOptionWhenAnInvalidOptionIsChosen() {
+    public void shouldInvokeListBooksMenuOptionDoOperationWhenListBooksOptionIsChosen() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        String input = "invalid option";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
+        InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
+        ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
-        System.setIn(System.in);
 
+        when(inputReader.read()).thenReturn("1");
         mainMenu.interactWithUser();
 
-        assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
+        verify(listBooksMenuOption).doOperation();
     }
 
     @Test
-    public void shouldKeepDiplayingOptionsUntilQuitOptionIsChosen() {
-        exit.expectSystemExit();
-
+    public void shouldInvokeDoOperationOnInvalidMenuOperationWhenAnInvalidOptionIsChosen() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        options.add("2. Quit");
-        String input = "2";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
+        InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
+        ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
-        System.setIn(System.in);
 
+        when(inputReader.read()).thenReturn("*");
         mainMenu.interactWithUser();
+
+        verify(invalidMenuOption).doOperation();
     }
 
     @Test
@@ -127,56 +91,41 @@ public class MainMenuTest {
         options.add("1. List Books");
         options.add("2. Quit");
         options.add("3. Checkout Book");
-        String input = "*";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
+        InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
+        ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
-        System.setIn(System.in);
 
+        when(inputReader.read()).thenReturn("*");
         mainMenu.interactWithUser();
 
         assertEquals("1. List Books\n" +
                 "2. Quit\n" +
-                "3. Checkout Book\n" +
-                "Select a valid option!\n", outContent.toString());
+                "3. Checkout Book\n", outContent.toString());
     }
 
-
     @Test
-    public void shouldTakeInputFromUserWhenCheckoutOptionIsChosen() {
+    public void shouldSysExitWhenQuitOptionIsChosen() {
+        exit.expectSystemExit();
+
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");
         options.add("3. Checkout Book");
-        String input = "*";
-        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
-        System.setIn(inContent);
-        Scanner scanner = new Scanner(System.in);
-        InputReader inputReader = new InputReader(scanner);
+        InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
-        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
+        ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
-        optionsMap.put("3", checkoutBookMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
-        System.setIn(System.in);
 
+        when(inputReader.read()).thenReturn("2");
         mainMenu.interactWithUser();
-
-        assertEquals("1. List Books\n" +
-                "2. Quit\n" +
-                "3. Checkout Book\n" +
-                "Select a valid option!\n", outContent.toString());
     }
 }

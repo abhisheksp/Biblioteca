@@ -16,6 +16,7 @@ public class MainMenu {
     }
 
     public void interactWithUser() {
+        do {
             displayOptions();
             String input = inputReader.read();
             if (input.equals("2"))
@@ -24,6 +25,7 @@ public class MainMenu {
                 optionsMap.get(input).doOperation();
             else
                 optionsMap.get("invalid").doOperation();
+        } while (true);
     }
 
     private void displayOptions() {

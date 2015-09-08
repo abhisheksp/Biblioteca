@@ -1,37 +1,37 @@
 <?xml version = "1.0"?>
 <project name="Biblioteca" default="runjUnit" basedir=".">
-  <target name="build" depends="clean">
-    <mkdir dir="out"/>
-    <javac destdir="out">
-      <src path="src;test"/>
-      <classpath>
-        <pathelement location="lib/junit-4.12.jar"/>
-        <pathelement location="lib/mockito-all-1.9.5.jar"/>
-        <pathelement location="lib/system-rules-1.12.0.jar"/>
-      </classpath>
+    <target name="build" depends="clean">
+        <mkdir dir="out"/>
+        <javac destdir="out">
+            <src path="src;test"/>
+            <classpath>
+                <pathelement location="lib/junit-4.12.jar"/>
+                <pathelement location="lib/mockito-all-1.9.5.jar"/>
+                <pathelement location="lib/system-rules-1.12.0.jar"/>
+            </classpath>
 
-    </javac>
-  </target>
+        </javac>
+    </target>
 
-  <target name="clean" description="Remove any previous output directory">
-    <delete dir="out"/>
-  </target>
+    <target name="clean" description="Remove any previous output directory">
+        <delete dir="out"/>
+    </target>
 
-  <target name="runjUnit" depends="build" description="runs the junit test cases">
-    <junit printsummary="yes" haltonfailure="true"  showoutput="true">
-      <classpath>
-        <pathelement location="lib/junit-4.12.jar"/>
-        <pathelement location="lib/hamcrest-all-1.1.jar"/>
-        <pathelement location="lib/mockito-all-1.9.5.jar"/>
-        <pathelement location="lib/system-rules-1.12.0.jar"/>
-        <pathelement location="out"/>
-      </classpath>
+    <target name="runjUnit" depends="build" description="runs the junit test cases">
+        <junit printsummary="yes" haltonfailure="true"  showoutput="true">
+            <classpath>
+                <pathelement location="lib/junit-4.12.jar"/>
+                <pathelement location="lib/hamcrest-all-1.1.jar"/>
+                <pathelement location="lib/mockito-all-1.9.5.jar"/>
+                <pathelement location="lib/system-rules-1.12.0.jar"/>
+                <pathelement location="out"/>
+            </classpath>
 
-      <batchtest fork="yes" todir=".">
-        <fileset dir="test/">
-          <include name="**/*Test.java" />
-        </fileset>
-      </batchtest>
-    </junit>
-  </target>
+            <batchtest fork="yes" todir=".">
+                <fileset dir="test/">
+                    <include name="**/*Test.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
 </project>

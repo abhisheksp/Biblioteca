@@ -2,7 +2,6 @@ package com.thoughtworks.biblioteca;
 
 import org.junit.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
-
 import java.io.*;
 import java.util.*;
 
@@ -92,7 +91,7 @@ public class MainMenuTest {
 
         mainMenu.interactWithUser();
 
-        Assert.assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
+        assertEquals("1. List Books\n" + "Select a valid option!\n", outContent.toString());
     }
 
     @Test
@@ -116,5 +115,32 @@ public class MainMenuTest {
         System.setIn(System.in);
 
         mainMenu.interactWithUser();
+    }
+
+    @Test
+    public void shouldDisplayCheckOutOption() {
+        ArrayList<String> options = new ArrayList<String>();
+        options.add("1. List Books");
+        options.add("2. Quit");
+        options.add("3. Checkout Book");
+        String input = "*";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inContent);
+        Scanner scanner = new Scanner(System.in);
+        InputReader inputReader = new InputReader(scanner);
+        Library library = mock(Library.class);
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
+        Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
+        optionsMap.put("1", library);
+        optionsMap.put("invalid", invalidMenuOption);
+        MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
+        System.setIn(System.in);
+
+        mainMenu.interactWithUser();
+
+        assertEquals("1. List Books\n" +
+                "2. Quit\n" +
+                "3. Checkout Book\n" +
+                "Select a valid option!\n", outContent.toString());
     }
 }

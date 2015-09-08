@@ -108,9 +108,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldSysExitWhenQuitOptionIsChosen() {
-        exit.expectSystemExit();
-
+    public void shouldCallDoOperationOnQuitMenuOperationWhenQuitOptionIsChosen() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");
@@ -120,12 +118,16 @@ public class MainMenuTest {
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
         ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
         InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
+        QuitMenuOption quitMenuOption = mock(QuitMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
+        optionsMap.put("2", quitMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
 
         when(inputReader.read()).thenReturn("2");
         mainMenu.interactWithUser();
+
+        verify(quitMenuOption).doOperation();
     }
 
     @Test

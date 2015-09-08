@@ -29,7 +29,6 @@ public class MainMenuTest {
 
     @Test
     public void shouldInvokeReadFromInputReaderAfterDisplayingOptions() {
-        exit.expectSystemExit();
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         InputReader inputReader = mock(InputReader.class);
@@ -41,7 +40,7 @@ public class MainMenuTest {
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
 
-        when(inputReader.read()).thenReturn("2");
+        when(inputReader.read()).thenReturn("*");
         mainMenu.interactWithUser();
 
         verify(inputReader).read();

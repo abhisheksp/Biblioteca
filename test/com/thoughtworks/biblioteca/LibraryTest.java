@@ -50,7 +50,8 @@ public class LibraryTest {
         library.checkOutBook(new Book("Brief History of Time"));
         library.display();
 
-        assertEquals("Book\tAuthor\tYear Published\n" +
+        assertEquals("Thank you! Enjoy the book\n" +
+                "Book\tAuthor\tYear Published\n" +
                 "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
                 "Seven Minutes\tIrving Wallace\t1969\n", outContent.toString());
     }

@@ -1,9 +1,8 @@
 package com.thoughtworks.biblioteca;
 
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -18,5 +17,17 @@ public class CheckoutBookMenuOptionTest {
         checkoutBookMenuOption.doOperation();
 
         verify(inputReader).read();
+    }
+
+    @Test
+    public void shouldCallLibraryCheckoutWithGivenBookWhenDoOperationIsCalled() {
+        InputReader inputReader = mock(InputReader.class);
+        Library library = mock(Library.class);
+        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
+        ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+
+        checkoutBookMenuOption.doOperation();
+
+        verify(library).checkOutBook(argumentCaptor.capture());
     }
 }

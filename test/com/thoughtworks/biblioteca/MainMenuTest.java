@@ -39,7 +39,7 @@ public class MainMenuTest {
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Library library = mock(Library.class);
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, inputReader);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
@@ -62,7 +62,7 @@ public class MainMenuTest {
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, inputReader);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
@@ -86,7 +86,7 @@ public class MainMenuTest {
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, inputReader);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
@@ -112,7 +112,7 @@ public class MainMenuTest {
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, inputReader);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
@@ -135,7 +135,7 @@ public class MainMenuTest {
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, inputReader);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
@@ -164,7 +164,7 @@ public class MainMenuTest {
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, inputReader);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);

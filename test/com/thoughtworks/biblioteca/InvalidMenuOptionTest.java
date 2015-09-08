@@ -26,7 +26,7 @@ public class InvalidMenuOptionTest {
     public void shouldDisplaySelectAValidOptionWhenAnInvalidOptionIsChosen(){
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
 
-        invalidMenuOption.display();
+        invalidMenuOption.doOperation();
 
         assertEquals("Select a valid option!\n", outContent.toString());
     }

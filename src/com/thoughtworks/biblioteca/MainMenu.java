@@ -21,9 +21,9 @@ public class MainMenu {
             if (input.equals("2"))
                 System.exit(1);
             else if (optionsMap.containsKey(input))
-                optionsMap.get(input).display();
+                optionsMap.get(input).doOperation();
             else
-                optionsMap.get("invalid").display();
+                optionsMap.get("invalid").doOperation();
     }
 
     private void displayOptions() {

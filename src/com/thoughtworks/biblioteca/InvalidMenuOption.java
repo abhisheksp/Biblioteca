@@ -9,7 +9,12 @@ public class InvalidMenuOption implements MenuOption {
         this.invalidMessage = invalidMessage;
     }
 
-    public void display() {
+    @Override
+    public boolean doOperation(){
+        display();
+        return true;
+    }
+    private void display() {
         System.out.println("Select a valid option!");
     }
 }

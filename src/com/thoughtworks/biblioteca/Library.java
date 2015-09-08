@@ -2,7 +2,8 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-public class Library implements MenuOption {
+//Library has a list of books and can display,checkout them
+public class Library{
 
     ArrayList<Book> bookList = new ArrayList<Book>();
 

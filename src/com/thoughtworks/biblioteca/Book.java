@@ -20,12 +20,13 @@ public class Book {
         if (this == that) return true;
         if (that == null || getClass() != that.getClass()) return false;
         Book thatBook = (Book) that;
-        return !(name != null ? !name.equals(thatBook.name) : thatBook.name != null);
+        return name.equals(thatBook.name);
+
     }
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        return name.hashCode();
     }
 
     @Override

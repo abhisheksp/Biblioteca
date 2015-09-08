@@ -20,6 +20,7 @@ public class Library{
     }
 
     public void checkOutBook(Book book) {
-        bookList.remove(book);
+        if(!bookList.remove(book))
+            System.out.println("Thank you! Enjoy the book");
     }
 }

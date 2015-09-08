@@ -19,15 +19,4 @@ public class CheckoutBookMenuOptionTest {
 
         verify(inputReader).read();
     }
-
-    @Test
-    public void shouldCallLibraryCheckoutWithGivenBookWhenDoOperationIsCalled() {
-        InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
-        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
-
-        checkoutBookMenuOption.doOperation();
-
-        verify(library).checkOutBook(anyObject());
-    }
 }

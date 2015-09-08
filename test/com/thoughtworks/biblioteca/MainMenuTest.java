@@ -163,10 +163,12 @@ public class MainMenuTest {
         InputReader inputReader = new InputReader(scanner);
         Library library = mock(Library.class);
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
+        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
         ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library);
         optionsMap.put("1", listBooksMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
+        optionsMap.put("3", checkoutBookMenuOption);
         MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
         System.setIn(System.in);
 

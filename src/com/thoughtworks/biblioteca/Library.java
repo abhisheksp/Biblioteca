@@ -22,5 +22,7 @@ public class Library {
     public void checkOutBook(Book book) {
         if (bookList.remove(book))
             System.out.println("Thank you! Enjoy the book");
+        else
+            System.out.println("That book is not available.");
     }
 }

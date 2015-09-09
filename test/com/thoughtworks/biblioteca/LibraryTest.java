@@ -51,4 +51,17 @@ public class LibraryTest {
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayUnsuccessAfterUnsuccessfulCheckout() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
+        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
+        Library library = new Library(books);
+
+        library.checkOutBook(new Book("Not really a Book"));
+
+        assertEquals("That book is not available.\n", outContent.toString());
+    }
 }

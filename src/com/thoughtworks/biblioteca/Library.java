@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /* Library has a list of books and can display,checkout them */
 public class Library {
 
-    ArrayList<Book> availableBooks = new ArrayList<Book>();
+    ArrayList<Book> availableBooks;
     ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
     public Library(ArrayList<Book> availableBooks) {
@@ -20,24 +20,23 @@ public class Library {
         }
     }
 
-    public void checkOutBook(Book book) {
+    public void checkOut(Book book) {
         if (availableBooks.contains(book)) {
             int bookIndex = availableBooks.indexOf(book);
             checkedOutBooks.add(availableBooks.get(bookIndex));
             availableBooks.remove(book);
             System.out.println("Thank you! Enjoy the book");
-        }
-        else {
+        } else {
             System.out.println("That book is not available.");
         }
     }
 
     public void checkIn(Book book) {
-        if(checkedOutBooks.contains(book)) {
+        if (checkedOutBooks.contains(book)) {
             int bookIndex = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(bookIndex));
             System.out.println("Thank you for returning the book.");
-        }else{
+        } else {
             System.out.println("That is not a valid book to return.");
         }
     }

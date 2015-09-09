@@ -28,6 +28,6 @@ public class CheckoutBookMenuOptionTest {
 
         checkoutBookMenuOption.doOperation();
 
-        verify(library).checkOutBook(argumentCaptor.capture());
+        verify(library).checkOut(argumentCaptor.capture());
     }
 }

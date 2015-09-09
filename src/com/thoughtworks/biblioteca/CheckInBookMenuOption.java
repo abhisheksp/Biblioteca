@@ -1,18 +1,17 @@
 package com.thoughtworks.biblioteca;
 
-public class CheckoutBookMenuOption implements MenuOption {
+public class CheckInBookMenuOption implements MenuOption{
 
     private InputReader inputReader;
     private Library library;
 
-    public CheckoutBookMenuOption(InputReader inputReader, Library library) {
+    public CheckInBookMenuOption(InputReader inputReader, Library library) {
         this.inputReader = inputReader;
         this.library = library;
     }
 
     @Override
     public void doOperation() {
-        String bookName = inputReader.read();
-        library.checkOut(new Book(bookName));
+        inputReader.read();
     }
 }

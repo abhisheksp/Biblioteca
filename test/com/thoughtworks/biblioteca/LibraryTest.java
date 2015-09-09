@@ -3,7 +3,6 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class LibraryTest {
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkOutBook(new Book("Brief History of Time"));
+        library.checkOut(new Book("Brief History of Time"));
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
@@ -60,7 +59,7 @@ public class LibraryTest {
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkOutBook(new Book("Not really a Book"));
+        library.checkOut(new Book("Not really a Book"));
 
         assertEquals("That book is not available.\n", outContent.toString());
     }
@@ -73,7 +72,7 @@ public class LibraryTest {
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkOutBook(new Book("Brief History of Time"));
+        library.checkOut(new Book("Brief History of Time"));
         library.checkIn(new Book("Brief History of Time"));
         library.display();
 
@@ -93,7 +92,7 @@ public class LibraryTest {
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkOutBook(new Book("Brief History of Time"));
+        library.checkOut(new Book("Brief History of Time"));
         library.checkIn(new Book("Brief History of Time"));
         library.display();
 

@@ -12,7 +12,7 @@ public class QuitMenuOptionTest {
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Test
-    public void shouldDisplaySelectAValidOptionWhenAnInvalidOptionIsChosen(){
+    public void shouldSysExitWhenQuitOptionIsChosen(){
         exit.expectSystemExit();
 
         QuitMenuOption quitMenuOption = new QuitMenuOption();

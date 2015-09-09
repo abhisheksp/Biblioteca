@@ -3,7 +3,7 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 
 //Library has a list of books and can display,checkout them
-public class Library{
+public class Library {
 
     ArrayList<Book> bookList = new ArrayList<Book>();
 
@@ -20,7 +20,7 @@ public class Library{
     }
 
     public void checkOutBook(Book book) {
-        if(!bookList.remove(book))
+        if (bookList.remove(book))
             System.out.println("Thank you! Enjoy the book");
     }
 }

@@ -3,6 +3,7 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -39,20 +40,15 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldCheckOutBookGivenBookName() {
+    public void shouldDisplaySuccessAfterSuccessfulCheckout() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        books.remove(new Book("Brief History of Time"));
         library.checkOutBook(new Book("Brief History of Time"));
-        library.display();
 
-        assertEquals("Thank you! Enjoy the book\n" +
-                "Book\tAuthor\tYear Published\n" +
-                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
-                "Seven Minutes\tIrving Wallace\t1969\n", outContent.toString());
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 }

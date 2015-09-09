@@ -1,6 +1,8 @@
 package com.thoughtworks.biblioteca;
 
+/* Book has name, author and year of publish which it can format itself */
 public class Book {
+
     private String name;
     private String author;
     private int year;
@@ -31,6 +33,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return name+"\t"+author+"\t"+year;
+        return String.format("%-30s%-30s%-30s\n", this.name, this.author, this.year);
     }
 }

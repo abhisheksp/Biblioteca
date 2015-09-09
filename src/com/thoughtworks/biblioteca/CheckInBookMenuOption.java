@@ -12,6 +12,7 @@ public class CheckInBookMenuOption implements MenuOption{
 
     @Override
     public void doOperation() {
-        inputReader.read();
+        String bookName = inputReader.read();
+        library.checkIn(new Book(bookName));
     }
 }

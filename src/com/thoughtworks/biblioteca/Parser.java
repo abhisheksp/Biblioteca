@@ -19,7 +19,9 @@ public class Parser {
             return new QuitMenuOption();
         else if(input.equals("3"))
             return new CheckoutBookMenuOption(inputReader, library);
-        else
+        else if(input.equals("4"))
             return new CheckInBookMenuOption(inputReader, library);
+        else
+            return new InvalidMenuOption("Select a valid option!");
     }
 }

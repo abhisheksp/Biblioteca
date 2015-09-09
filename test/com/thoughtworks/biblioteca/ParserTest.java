@@ -42,4 +42,13 @@ public class ParserTest {
 
         assertEquals(CheckInBookMenuOption.class, parser.parse().getClass());
     }
+
+    @Test
+    public void shouldReturnInvalidMenuOptionWhenInputIsInvalid(){
+        Library library = mock(Library.class);
+        InputReader inputReader =  mock(InputReader.class);
+        Parser parser = new Parser("blah", inputReader, library);
+
+        assertEquals(InvalidMenuOption.class, parser.parse().getClass());
+    }
 }

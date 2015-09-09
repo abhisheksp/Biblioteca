@@ -104,4 +104,17 @@ public class LibraryTest {
                 "Seven Minutes\tIrving Wallace\t1969\n" +
                 "Brief History of Time\tStephen Hawking\t1988\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayUnsuccessfulCheckInMessageWhenCheckInFails() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
+        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
+        Library library = new Library(books);
+
+        library.checkIn(new Book("Some Non Existent Book"));
+
+        assertEquals("That is not a valid book to return.\n", outContent.toString());
+    }
 }

@@ -152,4 +152,29 @@ public class MainMenuTest {
 
         verify(checkoutBookMenuOption).doOperation();
     }
+
+    @Test
+    public void shouldCallCheckInMenuOptionDoOperationWhenCheckInMenuOptionIsChosen() {
+        ArrayList<String> options = new ArrayList<String>();
+        options.add("1. List Books");
+        options.add("2. Quit");
+        options.add("3. Checkout Book");
+        InputReader inputReader = mock(InputReader.class);
+        Library library = mock(Library.class);
+        Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
+        ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
+        CheckoutBookMenuOption checkoutBookMenuOption = mock(CheckoutBookMenuOption.class);
+        CheckInBookMenuOption checkInBookMenuOption = mock(CheckInBookMenuOption.class);
+        optionsMap.put("1", listBooksMenuOption);
+        optionsMap.put("invalid", invalidMenuOption);
+        optionsMap.put("3", checkoutBookMenuOption);
+        optionsMap.put("4", checkInBookMenuOption);
+        MainMenu mainMenu = new MainMenu(options, inputReader, optionsMap);
+
+        when(inputReader.read()).thenReturn("4");
+        mainMenu.interactWithUser();
+
+        verify(checkInBookMenuOption).doOperation();
+    }
 }

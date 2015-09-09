@@ -68,14 +68,38 @@ public class LibraryTest {
     @Test
     public void shouldCheckInGivenBookIntoBookListWhenCheckInIsCalled() {
         ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkIn(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        library.checkOutBook(new Book("Brief History of Time"));
+        library.checkIn(new Book("Brief History of Time"));
         library.display();
 
-        assertEquals("Book\tAuthor\tYear Published\n" +
+        assertEquals("Thank you! Enjoy the book\n" +
+                "Thank you for returning the book.\n" +
+                "Book\tAuthor\tYear Published\n" +
+                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
+                "Seven Minutes\tIrving Wallace\t1969\n" +
+                "Brief History of Time\tStephen Hawking\t1988\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldDisplaySuccessfulReturnMessageWhenCheckInIsSuccessful() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
+        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
+        Library library = new Library(books);
+
+        library.checkOutBook(new Book("Brief History of Time"));
+        library.checkIn(new Book("Brief History of Time"));
+        library.display();
+
+        assertEquals("Thank you! Enjoy the book\n" +
+                "Thank you for returning the book.\n" +
+                "Book\tAuthor\tYear Published\n" +
                 "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
                 "Seven Minutes\tIrving Wallace\t1969\n" +
                 "Brief History of Time\tStephen Hawking\t1988\n", outContent.toString());

@@ -163,10 +163,12 @@ public class MainMenuTest {
         Library library = mock(Library.class);
         Map<String, MenuOption> optionsMap = new HashMap<String, MenuOption>();
         ListBooksMenuOption listBooksMenuOption = mock(ListBooksMenuOption.class);
+        QuitMenuOption quitMenuOption = mock(QuitMenuOption.class);
         InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
         CheckoutBookMenuOption checkoutBookMenuOption = mock(CheckoutBookMenuOption.class);
         CheckInBookMenuOption checkInBookMenuOption = mock(CheckInBookMenuOption.class);
         optionsMap.put("1", listBooksMenuOption);
+        optionsMap.put("2", quitMenuOption);
         optionsMap.put("invalid", invalidMenuOption);
         optionsMap.put("3", checkoutBookMenuOption);
         optionsMap.put("4", checkInBookMenuOption);
@@ -176,5 +178,5 @@ public class MainMenuTest {
         mainMenu.interactWithUser();
 
         verify(checkInBookMenuOption).doOperation();
-    }
+    }   
 }

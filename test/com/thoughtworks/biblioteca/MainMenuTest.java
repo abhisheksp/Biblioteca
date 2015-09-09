@@ -1,7 +1,6 @@
 package com.thoughtworks.biblioteca;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
@@ -17,6 +16,7 @@ public class MainMenuTest {
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
 
         when(inputReader.read()).thenReturn("*");
+        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!"));
         mainMenu.interactWithUser();
 
         verify(inputReader).read();

@@ -25,4 +25,8 @@ public class Library {
         else
             System.out.println("That book is not available.");
     }
+
+    public void checkIn(Book book) {
+        bookList.add(book);
+    }
 }

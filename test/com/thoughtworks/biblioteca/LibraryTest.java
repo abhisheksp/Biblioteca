@@ -53,7 +53,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldDisplayUnsuccessAfterUnsuccessfulCheckout() {
+    public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckout() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
@@ -63,5 +63,21 @@ public class LibraryTest {
         library.checkOutBook(new Book("Not really a Book"));
 
         assertEquals("That book is not available.\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldCheckInGivenBookIntoBookListWhenCheckInIsCalled() {
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
+        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
+        Library library = new Library(books);
+
+        library.checkIn(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        library.display();
+
+        assertEquals("Book\tAuthor\tYear Published\n" +
+                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
+                "Seven Minutes\tIrving Wallace\t1969\n" +
+                "Brief History of Time\tStephen Hawking\t1988\n", outContent.toString());
     }
 }

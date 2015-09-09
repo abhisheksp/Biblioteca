@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-//Library has a list of books and can display,checkout them
+/* Library has a list of books and can display,checkout them */
 public class Library {
 
     ArrayList<Book> bookList = new ArrayList<Book>();

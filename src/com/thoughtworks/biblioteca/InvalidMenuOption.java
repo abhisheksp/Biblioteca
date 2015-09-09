@@ -10,9 +10,8 @@ public class InvalidMenuOption implements MenuOption {
     }
 
     @Override
-    public boolean doOperation(){
+    public void doOperation(){
         display();
-        return true;
     }
     private void display() {
         System.out.println("Select a valid option!");

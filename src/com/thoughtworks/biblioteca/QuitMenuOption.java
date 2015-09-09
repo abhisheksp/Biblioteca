@@ -3,8 +3,7 @@ package com.thoughtworks.biblioteca;
 public class QuitMenuOption implements MenuOption{
 
     @Override
-    public boolean doOperation(){
+    public void doOperation(){
         System.exit(0);
-        return true;
     }
 }

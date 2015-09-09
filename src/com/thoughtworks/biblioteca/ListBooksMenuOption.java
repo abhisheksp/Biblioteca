@@ -9,8 +9,7 @@ public class ListBooksMenuOption implements MenuOption{
     }
 
     @Override
-    public boolean doOperation(){
+    public void doOperation(){
         library.display();
-        return true;
     }
 }

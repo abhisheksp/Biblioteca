@@ -11,9 +11,8 @@ public class CheckoutBookMenuOption implements MenuOption {
     }
 
     @Override
-    public boolean doOperation() {
+    public void doOperation() {
         String bookName = inputReader.read();
         library.checkOutBook(new Book(bookName));
-        return true;
     }
 }

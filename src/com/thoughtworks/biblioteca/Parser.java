@@ -11,6 +11,9 @@ public class Parser {
     }
 
     public MenuOption parse() {
-        return new ListBooksMenuOption(library);
+        if(input.equals("1"))
+            return new ListBooksMenuOption(library);
+        else
+            return new QuitMenuOption();
     }
 }

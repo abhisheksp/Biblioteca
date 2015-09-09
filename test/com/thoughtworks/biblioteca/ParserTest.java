@@ -14,4 +14,12 @@ public class ParserTest {
 
         assertEquals(ListBooksMenuOption.class, parser.parse().getClass());
     }
+
+    @Test
+    public void shouldReturnQuitMenuOptionWhenInputIsTwo(){
+        Library library = mock(Library.class);
+        Parser parser = new Parser("2", library);
+
+        assertEquals(QuitMenuOption.class, parser.parse().getClass());
+    }
 }

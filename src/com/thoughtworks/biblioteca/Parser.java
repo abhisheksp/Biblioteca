@@ -4,13 +4,11 @@ import java.util.HashMap;
 
 public class Parser {
 
-    private String input;
     private InputReader inputReader;
     private Library library;
     private HashMap<String, MenuOption> menuOptionsMap;
 
-    public Parser(String input, InputReader inputReader, Library library) {
-        this.input = input;
+    public Parser(InputReader inputReader, Library library) {
         this.inputReader = inputReader;
         this.library = library;
         configureMenuOptionsMap();
@@ -25,8 +23,8 @@ public class Parser {
         menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!"));
     }
 
-    public MenuOption parse() {
-        MenuOption menuOption = menuOptionsMap.get(input);
+    public MenuOption parse(String rawInput) {
+        MenuOption menuOption = menuOptionsMap.get(rawInput);
         return menuOption == null ? menuOptionsMap.get("invalid") : menuOption;
     }
 }

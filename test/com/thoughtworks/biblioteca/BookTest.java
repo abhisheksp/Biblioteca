@@ -11,7 +11,7 @@ public class BookTest {
     public void shouldDisplayBookNameAuthorAndYearPublishedWhenItIsPrinted() {
         Book book = new Book("Brief History of Time", "Stephen Hawking", 1988);
 
-        assertEquals(String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", 1988), book.toString());
+        assertEquals(String.format("%-30s%-30s%-30s", "Brief History of Time", "Stephen Hawking", 1988), book.toString());
     }
 
     @Test

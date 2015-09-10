@@ -80,10 +80,10 @@ public class LibraryTest {
 
         assertEquals("Thank you! Enjoy the book\n" +
                 "Thank you for returning the book.\n" +
-                "Book\tAuthor\tYear Published\n" +
-                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
-                "Seven Minutes\tIrving Wallace\t1969\n" +
-                "Brief History of Time\tStephen Hawking\t1988\n", outContent.toString());
+                String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
+                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
+                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969") +
+                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), outContent.toString());
     }
 
     @Test
@@ -100,10 +100,10 @@ public class LibraryTest {
 
         assertEquals("Thank you! Enjoy the book\n" +
                 "Thank you for returning the book.\n" +
-                "Book\tAuthor\tYear Published\n" +
-                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
-                "Seven Minutes\tIrving Wallace\t1969\n" +
-                "Brief History of Time\tStephen Hawking\t1988\n", outContent.toString());
+                String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
+                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
+                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969") +
+                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), outContent.toString());
     }
 
     @Test

@@ -3,6 +3,7 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -33,9 +34,10 @@ public class LibraryTest {
 
         library.display();
 
-        assertEquals("Book\tAuthor\tYear Published\n" + "Brief History of Time\tStephen Hawking\t1988\n" +
-                "Crime and Punishment\tFyodor Dostoyevsky\t1866\n" +
-                "Seven Minutes\tIrving Wallace\t1969\n", outContent.toString());
+        assertEquals(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
+                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988") +
+                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
+                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), outContent.toString());
     }
 
     @Test

@@ -13,8 +13,8 @@ public class Library {
     }
 
     public void display() {
-        String columnHeader = "Book" + "\t" + "Author" + "\t" + "Year Published" + "\n";
-        System.out.print(columnHeader);
+        String columnHeader = String.format("%-30s%-30s%-30s", "Name", "Author", "Year Published");
+        System.out.println(columnHeader);
         for (Book book : availableBooks) {
             System.out.println(book);
         }

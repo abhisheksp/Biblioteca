@@ -16,10 +16,12 @@ public class MainMenu {
     }
 
     public void interactWithUser() {
-        displayMenuOptions();
-        String input = inputReader.read();
-        MenuOption menuOption = parser.parse(input);
-        menuOption.doOperation();
+        do {
+            displayMenuOptions();
+            String input = inputReader.read();
+            MenuOption menuOption = parser.parse(input);
+            menuOption.doOperation();
+        }while(true);
     }
 
     private void displayMenuOptions() {

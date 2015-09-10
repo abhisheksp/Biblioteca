@@ -21,7 +21,7 @@ public class MainMenu {
             String input = inputReader.read();
             MenuOption menuOption = parser.parse(input);
             menuOption.doOperation();
-        }while(true);
+        } while (true);
     }
 
     private void displayMenuOptions() {

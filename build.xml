@@ -36,7 +36,7 @@
             <ignore regex="org.slf4j.*"/>
             <fileset dir="./out">
                 <include name="**/*.class"/>
-                <include name="**/*Test*.class"/>
+                <exclude name="**/*Test*.class"/>
             </fileset>
         </cobertura-instrument>
     </target>

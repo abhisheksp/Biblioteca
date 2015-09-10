@@ -55,13 +55,13 @@ public class MainMenuTest {
         options.add("1. List Books");
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        InvalidMenuOption invalidMenuOption = mock(InvalidMenuOption.class);
+        QuitMenuOption quitMenuOption = new QuitMenuOption();
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
 
-        when(inputReader.read()).thenReturn("*", "2");
-        when(parser.parse(anyString())).thenReturn(invalidMenuOption, new QuitMenuOption());
+        when(inputReader.read()).thenReturn("2");
+        when(parser.parse(anyString())).thenReturn(quitMenuOption);
         mainMenu.interactWithUser();
 
-        verify(invalidMenuOption).doOperation();
+        verify(quitMenuOption).doOperation();
     }
 }

@@ -13,6 +13,11 @@ public class CheckoutBookMenuOption implements MenuOption {
     @Override
     public void doOperation() {
         String bookName = inputReader.read();
-        library.checkOut(new Book(bookName));
+        if(library.checkOut(new Book(bookName))){
+            System.out.println("Thank you! Enjoy the book");
+        }
+        else {
+            System.out.println("That book is not available.");
+        }
     }
 }

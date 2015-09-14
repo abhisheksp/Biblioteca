@@ -10,6 +10,7 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 public class ConsoleDisplayTest {
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before

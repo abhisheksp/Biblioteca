@@ -12,7 +12,6 @@ public class ListBooksMenuOption implements MenuOption{
 
     @Override
     public void doOperation(){
-        ConsoleDisplay consoleDisplay= consoleDisplayFactory.getNewConsoleDisplay(library.format());
-        consoleDisplay.display();
+        consoleDisplayFactory.getNewConsoleDisplay(library.format()).display();
     }
 }

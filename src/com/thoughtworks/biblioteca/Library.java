@@ -21,25 +21,23 @@ public class Library {
         return stringBuilder.toString();
     }
 
-    public void checkOut(Book book) {
+    public boolean checkOut(Book book) {
         if (availableBooks.contains(book)) {
             int bookIndex = availableBooks.indexOf(book);
             checkedOutBooks.add(availableBooks.get(bookIndex));
             availableBooks.remove(book);
-            System.out.println("Thank you! Enjoy the book");
-        } else {
-            System.out.println("That book is not available.");
+            return true;
         }
+        return false;
     }
 
-    public void checkIn(Book book) {
+    public boolean checkIn(Book book) {
         if (checkedOutBooks.contains(book)) {
             int bookIndex = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(bookIndex));
             checkedOutBooks.remove(book);
-            System.out.println("Thank you for returning the book.");
-        } else {
-            System.out.println("That is not a valid book to return.");
+            return true;
         }
+        return false;
     }
 }

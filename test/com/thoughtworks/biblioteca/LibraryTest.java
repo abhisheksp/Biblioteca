@@ -3,6 +3,7 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenBookIsInAvailableBooksWhenCheckOutIsCalled(){
+    public void shouldReturnTrueWhenBookIsInAvailableBooksWhenCheckOutIsCalled() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
@@ -53,7 +54,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenBookIsNotInAvailableBooksWhenCheckOutIsCalled(){
+    public void shouldReturnFalseWhenBookIsNotInAvailableBooksWhenCheckOutIsCalled() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
@@ -64,7 +65,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenBookIsInCheckoutBooksWhenCheckInIsCalled(){
+    public void shouldReturnTrueWhenBookIsInCheckoutBooksWhenCheckInIsCalled() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
@@ -77,7 +78,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenBookIsNotInCheckoutBooksWhenCheckInIsCalled(){
+    public void shouldReturnFalseWhenBookIsNotInCheckoutBooksWhenCheckInIsCalled() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));

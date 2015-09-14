@@ -49,7 +49,7 @@
         <delete dir="instrumented"/>
         <delete dir="cobertura.log"/>
         <delete dir="cobertura.ser"/>
-    </target>
+    </target>``
 
     <target name="runjUnit" depends="build" description="runs the junit test cases">
         <junit printsummary="yes" haltonfailure="true" fork="true" forkmode="once">

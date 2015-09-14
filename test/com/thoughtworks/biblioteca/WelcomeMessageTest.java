@@ -1,6 +1,7 @@
 package com.thoughtworks.biblioteca;
 
 import org.junit.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -21,11 +22,9 @@ public class WelcomeMessageTest {
     }
 
     @Test
-    public void shouldDisplayWelcomeMessageWhenWelcomeStringIsPassed() {
+    public void shouldReturnFormattedWelcomeMessageWhenWelcomeStringIsPassed() {
         WelcomeMessage welcomeMessage = new WelcomeMessage("Welcome");
 
-        welcomeMessage.display();
-
-        assertEquals("Welcome\n", outContent.toString());
+        assertEquals("Welcome\n", welcomeMessage.format());
     }
 }

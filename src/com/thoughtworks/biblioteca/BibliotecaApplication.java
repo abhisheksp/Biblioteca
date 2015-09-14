@@ -12,7 +12,7 @@ public class BibliotecaApplication {
         Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
         ArrayList<String> options = getOptions();
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
-        Controller controller = new Controller(welcomeMessage, mainMenu);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory);
         controller.start();
     }
 

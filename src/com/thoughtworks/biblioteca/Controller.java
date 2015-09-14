@@ -11,5 +11,6 @@ public class Controller {
 
     public void start() {
         welcomeMessage.display();
+        mainMenu.interactWithUser();
     }
 }

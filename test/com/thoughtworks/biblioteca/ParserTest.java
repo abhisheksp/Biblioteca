@@ -11,7 +11,8 @@ public class ParserTest {
     public void shouldReturnListBooksMenuOptionWhenInputIsOne(){
         Library library = mock(Library.class);
         InputReader inputReader =  mock(InputReader.class);
-        Parser parser = new Parser(inputReader, library);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
 
         assertEquals(ListBooksMenuOption.class, parser.parse("1").getClass());
     }
@@ -20,7 +21,8 @@ public class ParserTest {
     public void shouldReturnQuitMenuOptionWhenInputIsTwo(){
         Library library = mock(Library.class);
         InputReader inputReader =  mock(InputReader.class);
-        Parser parser = new Parser(inputReader, library);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
 
         assertEquals(QuitMenuOption.class, parser.parse("2").getClass());
     }
@@ -29,7 +31,8 @@ public class ParserTest {
     public void shouldReturnCheckOutMenuOptionWhenInputIsThree(){
         Library library = mock(Library.class);
         InputReader inputReader =  mock(InputReader.class);
-        Parser parser = new Parser(inputReader, library);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
 
         assertEquals(CheckoutBookMenuOption.class, parser.parse("3").getClass());
     }
@@ -38,7 +41,8 @@ public class ParserTest {
     public void shouldReturnCheckInMenuOptionWhenInputIsFour(){
         Library library = mock(Library.class);
         InputReader inputReader =  mock(InputReader.class);
-        Parser parser = new Parser(inputReader, library);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
 
         assertEquals(CheckInBookMenuOption.class, parser.parse("4").getClass());
     }
@@ -47,7 +51,8 @@ public class ParserTest {
     public void shouldReturnInvalidMenuOptionWhenInputIsInvalid(){
         Library library = mock(Library.class);
         InputReader inputReader =  mock(InputReader.class);
-        Parser parser = new Parser(inputReader, library);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
 
         assertEquals(InvalidMenuOption.class, parser.parse("blah").getClass());
     }

@@ -8,7 +8,8 @@ public class BibliotecaApplication {
         WelcomeMessage welcomeMessage = new WelcomeMessageFactory().getDefaultWelcomeMessage();
         InputReader inputReader = new InputReaderFactory().getDefaultInputReader();
         Library library = new LibraryFactory().getDefaultLibrary();
-        Parser parser = new Parser(inputReader, library);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
         ArrayList<String> options = getOptions();
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
         Controller controller = new Controller(welcomeMessage, mainMenu);

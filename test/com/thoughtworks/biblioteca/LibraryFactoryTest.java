@@ -27,11 +27,9 @@ public class LibraryFactoryTest {
     public void shouldReturnDefaultLibrary() {
         Library library = new LibraryFactory().getDefaultLibrary();
 
-        library.display();
-
         assertEquals(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published") +
                 String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988") +
                 String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866") +
-                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), outContent.toString());
+                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), library.format());
     }
 }

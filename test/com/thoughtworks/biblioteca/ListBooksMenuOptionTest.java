@@ -14,6 +14,6 @@ public class ListBooksMenuOptionTest {
 
         listBooksMenuOption.doOperation();
 
-        verify(library).display();
+        verify(library).format();
     }
 }

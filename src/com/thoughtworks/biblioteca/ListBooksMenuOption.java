@@ -10,6 +10,6 @@ public class ListBooksMenuOption implements MenuOption{
 
     @Override
     public void doOperation(){
-        library.display();
+        library.format();
     }
 }

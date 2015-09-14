@@ -25,19 +25,19 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldDisplayBookListWhenDisplayIsCalled() {
+    public void shouldReturnFormattedStringOfLibraryWhenFormatIsCalled() {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.display();
+        library.format();
 
         assertEquals(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
                 String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988") +
                 String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
-                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), outContent.toString());
+                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), library.format());
     }
 
     @Test
@@ -76,14 +76,14 @@ public class LibraryTest {
 
         library.checkOut(new Book("Brief History of Time"));
         library.checkIn(new Book("Brief History of Time"));
-        library.display();
 
         assertEquals("Thank you! Enjoy the book\n" +
                 "Thank you for returning the book.\n" +
                 String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
                 String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
                 String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969") +
-                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), outContent.toString());
+                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), "Thank you! Enjoy the book\n" +
+                "Thank you for returning the book.\n" + library.format());
     }
 
     @Test
@@ -96,14 +96,15 @@ public class LibraryTest {
 
         library.checkOut(new Book("Brief History of Time"));
         library.checkIn(new Book("Brief History of Time"));
-        library.display();
+        library.format();
 
         assertEquals("Thank you! Enjoy the book\n" +
                 "Thank you for returning the book.\n" +
                 String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
                 String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
                 String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969") +
-                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), outContent.toString());
+                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), "Thank you! Enjoy the book\n" +
+                "Thank you for returning the book.\n" + library.format());
     }
 
     @Test

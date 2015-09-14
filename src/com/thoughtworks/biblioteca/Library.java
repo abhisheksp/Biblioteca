@@ -2,7 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-/* Library has a list of books and can display,checkout them */
+/* Library has a list of books and can do checkin, checkout operations */
 public class Library {
 
     ArrayList<Book> availableBooks;
@@ -12,12 +12,13 @@ public class Library {
         this.availableBooks = availableBooks;
     }
 
-    public void display() {
-        String columnHeader = String.format("%-30s%-30s%-30s", "Name", "Author", "Year Published");
-        System.out.println(columnHeader);
+    public String format() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published"));
         for (Book book : availableBooks) {
-            System.out.println(book);
+            stringBuilder.append(book.toString() + "\n");
         }
+        return stringBuilder.toString();
     }
 
     public void checkOut(Book book) {

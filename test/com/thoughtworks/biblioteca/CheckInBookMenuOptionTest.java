@@ -62,4 +62,18 @@ public class CheckInBookMenuOptionTest {
 
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
+
+
+    @Test
+    public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckIn() {
+        InputReader inputReader = mock(InputReader.class);
+        Library library = mock(Library.class);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
+        ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+
+        when(library.checkIn(argumentCaptor.capture())).thenReturn(false);
+        checkInBookMenuOption.doOperation();
+
+        assertEquals("That is not a valid book to return.\n", outContent.toString());
+    }
 }

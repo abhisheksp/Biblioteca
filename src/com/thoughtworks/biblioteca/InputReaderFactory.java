@@ -11,7 +11,6 @@ public class InputReaderFactory {
         this.scanner = new Scanner(System.in);
     }
 
-
     public InputReader getDefaultInputReader() {
         return new InputReader(this.scanner);
     }

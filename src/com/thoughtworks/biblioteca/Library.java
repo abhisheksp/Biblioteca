@@ -35,6 +35,7 @@ public class Library {
         if (checkedOutBooks.contains(book)) {
             int bookIndex = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(bookIndex));
+            checkedOutBooks.remove(book);
             System.out.println("Thank you for returning the book.");
         } else {
             System.out.println("That is not a valid book to return.");

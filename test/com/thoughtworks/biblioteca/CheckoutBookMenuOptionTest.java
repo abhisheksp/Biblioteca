@@ -62,8 +62,17 @@ public class CheckoutBookMenuOptionTest {
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 
+
     @Test
     public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckout() {
+        InputReader inputReader = mock(InputReader.class);
+        Library library = mock(Library.class);
+        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
+        ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
 
+        when(library.checkOut(argumentCaptor.capture())).thenReturn(false);
+        checkoutBookMenuOption.doOperation();
+
+        assertEquals("That book is not available.\n", outContent.toString());
     }
 }

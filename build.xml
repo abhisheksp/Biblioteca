@@ -36,6 +36,8 @@
             <ignore regex="org.slf4j.*"/>
             <fileset dir="./out">
                 <include name="**/*.class"/>
+                <exclude name="**/*BibliotecaApplication*.class" />
+                <exclude name="**/*BibliotecaDemo*.class" />
                 <exclude name="**/*Test*.class"/>
             </fileset>
         </cobertura-instrument>
@@ -85,6 +87,8 @@
         <cobertura-report destdir="reports">
             <fileset dir="src">
                 <include name="**/*.java"/>
+                <exclude name="**/*BibliotecaApplication*.java" />
+                <exclude name="**/*BibliotecaDemo*.java" />
             </fileset>
         </cobertura-report>
     </target>

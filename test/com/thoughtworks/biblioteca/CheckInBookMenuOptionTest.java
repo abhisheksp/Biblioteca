@@ -63,7 +63,6 @@ public class CheckInBookMenuOptionTest {
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
 
-
     @Test
     public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckIn() {
         InputReader inputReader = mock(InputReader.class);

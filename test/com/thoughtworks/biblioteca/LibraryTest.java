@@ -3,12 +3,13 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
 
@@ -34,50 +35,55 @@ public class LibraryTest {
 
         library.format();
 
-        assertEquals(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
+        assertEquals(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published") +
                 String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988") +
-                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
+                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866") +
                 String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), library.format());
     }
 
     @Test
-    public void shouldCheckInGivenBookIntoBookListWhenCheckInIsCalled() {
+    public void shouldReturnTrueWhenBookIsInAvailableBooksWhenCheckOutIsCalled(){
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkOut(new Book("Brief History of Time"));
-        library.checkIn(new Book("Brief History of Time"));
-
-        assertEquals("Thank you! Enjoy the book\n" +
-                "Thank you for returning the book.\n" +
-                String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
-                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
-                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969") +
-                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), "Thank you! Enjoy the book\n" +
-                "Thank you for returning the book.\n" + library.format());
+        assertTrue(library.checkOut(new Book("Seven Minutes")));
     }
 
     @Test
-    public void shouldDisplaySuccessfulReturnMessageWhenCheckInIsSuccessful() {
+    public void shouldReturnFalseWhenBookIsNotInAvailableBooksWhenCheckOutIsCalled(){
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
         Library library = new Library(books);
 
-        library.checkOut(new Book("Brief History of Time"));
-        library.checkIn(new Book("Brief History of Time"));
-        library.format();
+        assertFalse(library.checkOut(new Book("Not Valid Stuff")));
+    }
 
-        assertEquals("Thank you! Enjoy the book\n" +
-                "Thank you for returning the book.\n" +
-                String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published")  +
-                String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866")  +
-                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969") +
-                String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988"), "Thank you! Enjoy the book\n" +
-                "Thank you for returning the book.\n" + library.format());
+    @Test
+    public void shouldReturnTrueWhenBookIsInCheckoutBooksWhenCheckInIsCalled(){
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
+        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
+        Library library = new Library(books);
+
+        library.checkOut(new Book("Seven Minutes"));
+
+        assertTrue(library.checkIn(new Book("Seven Minutes")));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenBookIsNotInCheckoutBooksWhenCheckInIsCalled(){
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
+        books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
+        books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
+        Library library = new Library(books);
+
+        assertFalse(library.checkIn(new Book("Not Valid Stuff")));
     }
 }

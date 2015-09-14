@@ -9,7 +9,7 @@ public class InputReader {
         this.scanner = scanner;
     }
 
-    public String read(){
+    public String read() {
         return scanner.nextLine();
     }
 }

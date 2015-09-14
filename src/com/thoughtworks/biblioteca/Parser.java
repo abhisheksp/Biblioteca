@@ -22,7 +22,7 @@ public class Parser {
         menuOptionsMap.put("2", new QuitMenuOption());
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library));
         menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
-        menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!"));
+        menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!", consoleDisplayFactory));
     }
 
     public MenuOption parse(String rawInput) {

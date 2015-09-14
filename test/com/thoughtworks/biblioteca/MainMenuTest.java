@@ -22,9 +22,12 @@ public class MainMenuTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
-        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!"), new QuitMenuOption());
+        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
         mainMenu.interactWithUser();
 
         verify(inputReader).read();
@@ -39,9 +42,12 @@ public class MainMenuTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
-        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!"), new QuitMenuOption());
+        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
         mainMenu.interactWithUser();
 
         verify(parser).parse(anyString());

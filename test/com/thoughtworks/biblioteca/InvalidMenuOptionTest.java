@@ -3,10 +3,13 @@ package com.thoughtworks.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.*;
 
 public class InvalidMenuOptionTest {
 
@@ -23,11 +26,14 @@ public class InvalidMenuOptionTest {
     }
 
     @Test
-    public void shouldDisplaySelectAValidOptionWhenAnInvalidOptionIsChosen(){
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!");
+    public void shouldCallDisplayOnConsoleDisplayWithInvalidMessageWhenAnInvalidOptionIsChosen() {
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption("Select a valid option!", consoleDisplayFactory);
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         invalidMenuOption.doOperation();
 
-        assertEquals("Select a valid option!\n", outContent.toString());
+        verify(consoleDisplay).display();
     }
 }

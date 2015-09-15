@@ -35,6 +35,7 @@ public class CheckOutMovieMenuOptionTest {
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
         CheckOutMovieMenuOption checkOutMovieMenuOption = new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory);
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("doesn't matter"));
         checkOutMovieMenuOption.doOperation();
 
         verify(inputReader).read();
@@ -48,6 +49,7 @@ public class CheckOutMovieMenuOptionTest {
         CheckOutMovieMenuOption checkOutMovieMenuOption = new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory);
         ArgumentCaptor<Movie> argumentCaptor = ArgumentCaptor.forClass(Movie.class);
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("doesn't matter"));
         checkOutMovieMenuOption.doOperation();
 
         verify(movieLibrary).checkOut(argumentCaptor.capture());
@@ -66,5 +68,20 @@ public class CheckOutMovieMenuOptionTest {
         checkOutMovieMenuOption.doOperation();
 
         assertEquals("Thank you! Enjoy the movie\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckout() {
+        InputReader inputReader = mock(InputReader.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckOutMovieMenuOption checkOutMovieMenuOption = new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory);
+        ArgumentCaptor<Movie> argumentCaptor = ArgumentCaptor.forClass(Movie.class);
+
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("That movie is not available."));
+        when(movieLibrary.checkOut(argumentCaptor.capture())).thenReturn(false);
+        checkOutMovieMenuOption.doOperation();
+
+        assertEquals("That movie is not available.\n", outContent.toString());
     }
 }

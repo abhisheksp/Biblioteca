@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 public class ListMoviesMenuOptionTest {
 
     @Test
-    public void shouldCallMovieLibraryFormatWhenDoOperationIsCalled(){
+    public void shouldCallMovieLibraryFormatWhenDoOperationIsCalled() {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
         ListMoviesMenuOption listMoviesMenuOption = new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory);
@@ -19,5 +19,18 @@ public class ListMoviesMenuOptionTest {
         listMoviesMenuOption.doOperation();
 
         verify(movieLibrary).format();
+    }
+
+    @Test
+    public void shouldCallConsoleDisplayOnReturnedStringWhenDoOperationIsCalled() {
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ListMoviesMenuOption listMoviesMenuOption = new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory);
+
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("blah"));
+        listMoviesMenuOption.doOperation();
+
+
+        verify(consoleDisplayFactory).getNewConsoleDisplay(anyString());
     }
 }

@@ -11,6 +11,6 @@ public class ListMoviesMenuOption {
     }
 
     public void doOperation() {
-        movieLibrary.format();
+        consoleDisplayFactory.getNewConsoleDisplay(movieLibrary.format()).display();
     }
 }

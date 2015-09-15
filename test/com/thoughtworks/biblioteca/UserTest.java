@@ -31,4 +31,10 @@ public class UserTest {
 
         assertNotEquals(new User("123-4567", "password"), null);
     }
+
+    @Test
+    public void shouldNotBeEqualToNonUserEntity(){
+
+        assertNotEquals(new User("123-4567", "password"), "Definitely not a User");
+    }
 }

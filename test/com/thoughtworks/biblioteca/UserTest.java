@@ -25,4 +25,10 @@ public class UserTest {
 
         assertNotEquals(new User("123-4567", "password"), new User("222-2222", "meh"));
     }
+
+    @Test
+    public void shouldNotBeEqualToNull(){
+
+        assertNotEquals(new User("123-4567", "password"), null);
+    }
 }

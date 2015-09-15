@@ -20,6 +20,10 @@ public class MovieLibrary {
     }
 
     public boolean checkOut(Movie movie) {
+        if (availableMovies.contains(movie)) {
+            availableMovies.remove(movie);
             return true;
+        }
+        return false;
     }
 }

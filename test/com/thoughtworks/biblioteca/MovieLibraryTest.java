@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -30,9 +31,17 @@ public class MovieLibraryTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenBookIsInAvailableBooksWhenCheckOutIsCalled() {
+    public void shouldReturnTrueWhenMovieIsInAvailableMoviesWhenCheckOutIsCalled() {
         MovieLibrary movieLibrary = new MovieLibraryFactory().getDefaultMovieLibrary();
 
         assertTrue(movieLibrary.checkOut(new Movie("Inception", UNKNOWN_YEAR, UNKNOWN_DIRECTOR, UNKNOWN_RATING)));
+    }
+
+
+    @Test
+    public void shouldReturnFalseWhenMovieIsNotInAvailableMoviesWhenCheckOutIsCalled() {
+        MovieLibrary movieLibrary = new MovieLibraryFactory().getDefaultMovieLibrary();
+
+        assertFalse(movieLibrary.checkOut(new Movie("Interstellar", UNKNOWN_YEAR, UNKNOWN_DIRECTOR, UNKNOWN_RATING)));
     }
 }

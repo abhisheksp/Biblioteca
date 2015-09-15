@@ -31,6 +31,12 @@ public class MovieTest {
         assertNotEquals(new Movie("Inception", 2010, "Christopher Nolan", "10.0"), new Movie("Not Inception", 2011, "doesn't matter", "9.0"));
     }
 
+
+    @Test
+    public void shouldNotBeEqualWhenComparingAMovieToNull() {
+        assertNotEquals(new Movie("Inception", 2010, "Christopher Nolan", "10.0"), null);
+    }
+
     @Test
     public void shouldHaveSameHashCodeForMoviesWithSameName() {
         assertEquals(new Movie("Inception", 2010, "Christopher Nolan", "10.0").hashCode(), new Movie("Inception", 2011, "doesn't matter", "9.0").hashCode());

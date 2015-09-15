@@ -12,11 +12,12 @@ public class Login {
         this.consoleDisplayFactory = consoleDisplayFactory;
     }
 
-    public void login() {
-        new ConsoleDisplayFactory().getNewConsoleDisplay("Library Number :").display();
+    public Session login() {
+        consoleDisplayFactory.getNewConsoleDisplay("Library Number :").display();
         String libraryNumber = inputReader.read();
-        new ConsoleDisplayFactory().getNewConsoleDisplay("Password :").display();
+        consoleDisplayFactory.getNewConsoleDisplay("Password :").display();
         String password = inputReader.read();
-        authenticator.authenticate(libraryNumber, password);
+        User user = authenticator.authenticate(libraryNumber, password);
+        return new SessionFactory().getNewSession(user);
     }
 }

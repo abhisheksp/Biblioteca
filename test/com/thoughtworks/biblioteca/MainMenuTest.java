@@ -1,73 +1,49 @@
 package com.thoughtworks.biblioteca;
 
-import org.junit.Rule;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
 
 public class MainMenuTest {
 
-    @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-    @Test
-    public void shouldInvokeReadFromInputReaderAfterDisplayingOptions() {
-        exit.expectSystemExit();
+    @Before
+    public void setupStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
 
-        ArrayList<String> options = new ArrayList<String>();
-        options.add("1. List Books");
-        InputReader inputReader = mock(InputReader.class);
-        Parser parser = mock(Parser.class);
-        MainMenu mainMenu = new MainMenu(options, inputReader, parser);
-        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
-
-        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
-        when(inputReader.read()).thenReturn("*", "2");
-        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
-        mainMenu.interactWithUser();
-
-        verify(inputReader).read();
+    @After
+    public void cleanUpStreams() {
+        System.setOut(System.out);
     }
 
     @Test
-    public void shouldInvokeParserParseAfterTakingInput(){
-        exit.expectSystemExit();
-
+    public void shouldDisplayMenuOptionsWhenDisplayOptionsIsCalled() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
-        InputReader inputReader = mock(InputReader.class);
-        Parser parser = mock(Parser.class);
-        MainMenu mainMenu = new MainMenu(options, inputReader, parser);
-        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
+        options.add("2. Quit");
+        options.add("3. Checkout Book");
+        options.add("4. Checkin Book");
+        options.add("5. List Movies");
+        options.add("6. Checkout Movie");
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
 
-        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
-        when(inputReader.read()).thenReturn("*", "2");
-        when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
-        mainMenu.interactWithUser();
+        mainMenu.displayMenuOptions();
 
-        verify(parser).parse(anyString());
-    }
-
-    @Test
-    public void shouldCallDoOperationOnTheMenuOptionReturned(){
-        exit.expectSystemExit();
-
-        ArrayList<String> options = new ArrayList<String>();
-        options.add("1. List Books");
-        InputReader inputReader = mock(InputReader.class);
-        Parser parser = mock(Parser.class);
-        QuitMenuOption quitMenuOption = new QuitMenuOption();
-        MainMenu mainMenu = new MainMenu(options, inputReader, parser);
-
-        when(inputReader.read()).thenReturn("2");
-        when(parser.parse(anyString())).thenReturn(quitMenuOption);
-        mainMenu.interactWithUser();
-
-        verify(quitMenuOption).doOperation();
+        assertEquals("1. List Books\n" +
+                "2. Quit\n" +
+                "3. Checkout Book\n" +
+                "4. Checkin Book\n" +
+                "5. List Movies\n" +
+                "6. Checkout Movie\n" +
+                "\n", outContent.toString());
     }
 }

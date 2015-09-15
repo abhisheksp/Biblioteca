@@ -2,31 +2,26 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
-/* MainMenu displays menu options, gets MenuOption via InputReader and Parser */
+/* MainMenu takes menu options and displays them via console display */
 public class MainMenu {
 
     private ArrayList<String> options;
-    private InputReader inputReader;
-    private Parser parser;
+    private ConsoleDisplayFactory consoleDisplayFactory;
 
-    public MainMenu(ArrayList<String> options, InputReader inputReader, Parser parser) {
+    public MainMenu(ArrayList<String> options, ConsoleDisplayFactory consoleDisplayFactory) {
         this.options = options;
-        this.inputReader = inputReader;
-        this.parser = parser;
+        this.consoleDisplayFactory = consoleDisplayFactory;
     }
 
-    public void interactWithUser() {
-        do {
-            displayMenuOptions();
-            String input = inputReader.read();
-            MenuOption menuOption = parser.parse(input);
-            menuOption.doOperation();
-        } while (true);
-    }
-
-    private void displayMenuOptions() {
+    private String formatOptions(){
+        StringBuilder stringBuilder = new StringBuilder();
         for (String option : options) {
-            System.out.println(option);
+            stringBuilder.append(option + "\n");
         }
+        return stringBuilder.toString();
+    }
+
+    public void displayMenuOptions() {
+        consoleDisplayFactory.getNewConsoleDisplay(formatOptions()).display();
     }
 }

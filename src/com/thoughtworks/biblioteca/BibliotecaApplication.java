@@ -12,8 +12,8 @@ public class BibliotecaApplication {
         MovieLibrary movieLibrary = new MovieLibraryFactory().getDefaultMovieLibrary();
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory);
         ArrayList<String> options = getOptions();
-        MainMenu mainMenu = new MainMenu(options, inputReader, parser);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory);
+        MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser);
         controller.start();
     }
 

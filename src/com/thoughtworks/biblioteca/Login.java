@@ -13,9 +13,10 @@ public class Login {
     }
 
     public void login() {
-        new ConsoleDisplayFactory().getNewConsoleDisplay("Library Id :").display();
-        inputReader.read();
+        new ConsoleDisplayFactory().getNewConsoleDisplay("Library Number :").display();
+        String libraryNumber = inputReader.read();
         new ConsoleDisplayFactory().getNewConsoleDisplay("Password :").display();
-        inputReader.read();
+        String password = inputReader.read();
+        authenticator.authenticate(libraryNumber, password);
     }
 }

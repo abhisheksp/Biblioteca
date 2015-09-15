@@ -10,6 +10,13 @@ public class MovieTest {
     public void shouldFormatItselfWithMovieNameYearDirectorRatingWhenItIsPrinted() {
         Movie movie = new Movie("Inception", 2010, "Christopher Nolan", "10.0");
 
-        assertEquals(String.format("%-30s%-30d%-30s%-30s", "Inception", 2010, "Christopher Nolan", 10.0), movie.toString());
+        assertEquals(String.format("%-30s%-30d%-30s%-30s", "Inception", 2010, "Christopher Nolan", "10.0"), movie.toString());
+    }
+
+    @Test
+    public void shouldBeEqualToItself(){
+        Movie movie = new Movie("Inception", 2010, "Christopher Nolan", "10.0");
+
+        assertEquals(movie, movie);
     }
 }

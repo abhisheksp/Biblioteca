@@ -14,7 +14,7 @@ public class Movie {
         this.director = director;
         this.rating = rating;
     }
-
+    
     @Override
     public String toString() {
         return String.format("%-30s%-30s%-30s%-30s", this.name, this.year, this.director, this.rating);

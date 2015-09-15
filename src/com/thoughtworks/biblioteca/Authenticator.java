@@ -11,6 +11,9 @@ public class Authenticator {
     }
 
     public User authenticate(String libraryNumber, String password) {
-        return new User(libraryNumber, password);
+        int indexOfUser = users.indexOf(new User(libraryNumber, password));
+        if(indexOfUser != -1)
+            return users.get(indexOfUser);
+        return new User("000-0000", "blacksheep");
     }
 }

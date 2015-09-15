@@ -12,4 +12,10 @@ public class UserTest {
 
         assertEquals(user, user);
     }
+
+    @Test
+    public void shouldBeEqualToAnotherUserWithSameCredentials(){
+
+        assertEquals(new User("123-4567", "password"), new User("123-4567", "password"));
+    }
 }

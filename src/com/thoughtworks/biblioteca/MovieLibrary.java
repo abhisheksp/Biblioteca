@@ -18,4 +18,8 @@ public class MovieLibrary {
         }
         return stringBuilder.toString();
     }
+
+    public boolean checkOut(Movie movie) {
+            return true;
+    }
 }

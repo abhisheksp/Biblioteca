@@ -37,4 +37,10 @@ public class UserTest {
 
         assertNotEquals(new User("123-4567", "password"), "Definitely not a User");
     }
+
+    @Test
+    public void shouldHaveSameHashCodeAsAnotherUserWithSameCredentials(){
+
+        assertEquals(new User("123-4567", "password").hashCode(), new User("123-4567", "password").hashCode());
+    }
 }

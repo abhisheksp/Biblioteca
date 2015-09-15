@@ -43,4 +43,11 @@ public class UserTest {
 
         assertEquals(new User("123-4567", "password", "user").hashCode(), new User("123-4567", "password", "user").hashCode());
     }
+
+    @Test
+    public void shouldReturnRoleWhenRoleIsCalled(){
+        User user = new User("123-4567", "password", "librarian");
+
+        assertEquals("librarian", user.role());
+    }
 }

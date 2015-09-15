@@ -27,6 +27,7 @@ public class BibliotecaApplication {
         options.add("2. Quit");
         options.add("3. Checkout Book");
         options.add("4. Checkin Book");
+        options.add("5. List Movies");
         return options;
     }
 }

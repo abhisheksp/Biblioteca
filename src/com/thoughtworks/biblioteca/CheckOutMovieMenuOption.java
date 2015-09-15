@@ -1,6 +1,6 @@
 package com.thoughtworks.biblioteca;
 
-public class CheckOutMovieMenuOption {
+public class CheckOutMovieMenuOption implements MenuOption{
 
     private final int UNKNOWN_YEAR = 0;
     private final String UNKNOWN_DIRECTOR = "";

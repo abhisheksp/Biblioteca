@@ -72,4 +72,15 @@ public class ParserTest {
 
         assertEquals(ListMoviesMenuOption.class, parser.parse("5").getClass());
     }
+
+    @Test
+    public void shouldReturnCheckOutMovieMenuOptionWhenInputIsSix(){
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        InputReader inputReader =  mock(InputReader.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Parser parser = new Parser(inputReader, library, movieLibrary,consoleDisplayFactory);
+
+        assertEquals(CheckOutMovieMenuOption.class, parser.parse("6").getClass());
+    }
 }

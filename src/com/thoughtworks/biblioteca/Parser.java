@@ -25,6 +25,7 @@ public class Parser {
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library));
         menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
         menuOptionsMap.put("5", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
+        menuOptionsMap.put("6", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!", consoleDisplayFactory));
     }
 

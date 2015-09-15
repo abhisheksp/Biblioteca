@@ -9,7 +9,12 @@ public class BibliotecaApplication {
         InputReader inputReader = new InputReaderFactory().getDefaultInputReader();
         Library library = new LibraryFactory().getDefaultLibrary();
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        Parser parser = new Parser(inputReader, library, consoleDisplayFactory);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        movies.add(new Movie("Inception", 2010, "Christopher Nolan", "10.0"));
+        movies.add(new Movie("Avatar", 2009, "James Cameron", "9.0"));
+        movies.add(new Movie("The Ring", 2002, "Gore Verbinski", "unrated"));
+        MovieLibrary movieLibrary = new MovieLibrary(movies);
+        Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory);
         ArrayList<String> options = getOptions();
         MainMenu mainMenu = new MainMenu(options, inputReader, parser);
         Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory);

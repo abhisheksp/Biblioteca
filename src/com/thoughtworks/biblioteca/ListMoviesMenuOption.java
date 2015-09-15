@@ -1,6 +1,6 @@
 package com.thoughtworks.biblioteca;
 
-public class ListMoviesMenuOption {
+public class ListMoviesMenuOption implements MenuOption{
 
     private MovieLibrary movieLibrary;
     private ConsoleDisplayFactory consoleDisplayFactory;

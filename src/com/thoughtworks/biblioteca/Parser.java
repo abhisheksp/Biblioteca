@@ -8,11 +8,13 @@ public class Parser {
     private Library library;
     private HashMap<String, MenuOption> menuOptionsMap;
     private ConsoleDisplayFactory consoleDisplayFactory;
+    private MovieLibrary movieLibrary;
 
-    public Parser(InputReader inputReader, Library library, ConsoleDisplayFactory consoleDisplayFactory) {
+    public Parser(InputReader inputReader, Library library, MovieLibrary movieLibrary, ConsoleDisplayFactory consoleDisplayFactory) {
         this.inputReader = inputReader;
         this.library = library;
         this.consoleDisplayFactory = consoleDisplayFactory;
+        this.movieLibrary = movieLibrary;
         configureMenuOptionsMap();
     }
 
@@ -22,6 +24,7 @@ public class Parser {
         menuOptionsMap.put("2", new QuitMenuOption());
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library));
         menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
+        menuOptionsMap.put("5", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!", consoleDisplayFactory));
     }
 

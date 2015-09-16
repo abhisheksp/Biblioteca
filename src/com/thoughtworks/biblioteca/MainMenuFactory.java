@@ -28,13 +28,13 @@ public class MainMenuFactory {
 
     public MainMenu userMenu() {
         ArrayList<String> options = new ArrayList<String>();
-        options.add("1. List Books");
-        options.add("2. List Movies");
-        options.add("3. Checkout Book");
-        options.add("4. Checkin Book");
-        options.add("5. Checkout Movie");
-        options.add("6. Logout");
-        options.add("7. Quit");
+            options.add("1. List Books");
+            options.add("2. List Movies");
+            options.add("3. Checkout Book");
+            options.add("4. Checkin Book");
+            options.add("5. Checkout Movie");
+            options.add("6. Logout");
+            options.add("7. Quit");
         mainMenu =  new MainMenu(options, new ConsoleDisplayFactory());
         return mainMenu;
     }

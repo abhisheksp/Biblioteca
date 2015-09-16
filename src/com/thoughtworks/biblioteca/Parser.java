@@ -32,6 +32,7 @@ public class Parser {
     private void configureUsertMenuOptions() {
         menuOptionsMap = new HashMap<String, MenuOption>();
         menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
+        menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
     }
 
     private void configureGuestMenuOptions(){

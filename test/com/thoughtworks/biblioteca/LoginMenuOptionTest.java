@@ -12,8 +12,8 @@ public class LoginMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         Authenticator authenticator = mock(Authenticator.class);
-        Session session = mock(Session.class);
-        LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, session);
+        User user = mock(User.class);
+        LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, user);
 
         when(inputReader.read()).thenReturn("222-2222", "juliusseizure");
         loginMenuOption.doOperation();
@@ -26,23 +26,12 @@ public class LoginMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         Authenticator authenticator = mock(Authenticator.class);
-        Session session = mock(Session.class);
-        LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, session);
+        User user = mock(User.class);
+        LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, user);
 
         when(inputReader.read()).thenReturn("222-2222", "juliusseizure");
         loginMenuOption.doOperation();
 
         verify(authenticator).authenticate(anyString(), anyString());
-    }
-
-    @Test
-    public void shouldReturnCurrentSessionWithUserWhenSessionIsCalled() {
-        InputReader inputReader = mock(InputReader.class);
-        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        Authenticator authenticator = mock(Authenticator.class);
-        Session session =  new SessionFactory().getNewSession(new User("", "", "guest"));
-        LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, session);
-
-        assertEquals(Session.class, loginMenuOption.session().getClass());
     }
 }

@@ -6,13 +6,13 @@ public class LoginMenuOption implements MenuOption {
     private Authenticator authenticator;
     private InputReader inputReader;
     private ConsoleDisplayFactory consoleDisplayFactory;
-    private Session session;
+    private User currentUser;
 
-    public LoginMenuOption(Authenticator authenticator, InputReader inputReader, ConsoleDisplayFactory consoleDisplayFactory, Session session) {
+    public LoginMenuOption(Authenticator authenticator, InputReader inputReader, ConsoleDisplayFactory consoleDisplayFactory, User currentUser) {
         this.authenticator = authenticator;
         this.inputReader = inputReader;
         this.consoleDisplayFactory = consoleDisplayFactory;
-        this.session = session;
+        this.currentUser = currentUser;
     }
 
     @Override
@@ -21,11 +21,10 @@ public class LoginMenuOption implements MenuOption {
         String libraryNumber = inputReader.read();
         consoleDisplayFactory.getNewConsoleDisplay("Password :").display();
         String password = inputReader.read();
-        User user = authenticator.authenticate(libraryNumber, password);
-        session = new SessionFactory().getNewSession(user);
+        currentUser = authenticator.authenticate(libraryNumber, password);
     }
 
-    public Session session() {
-        return session;
+    public User currentUser() {
+        return currentUser;
     }
 }

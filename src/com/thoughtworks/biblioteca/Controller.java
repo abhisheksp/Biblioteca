@@ -22,7 +22,7 @@ public class Controller {
     }
 
     public void interactWithUser() {
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest");   
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
         do {
             mainMenuFactory.getMenu(currentUser).displayMenuOptions();

@@ -164,7 +164,7 @@ public class ParserTest {
     }
 
     @Test
-    public void shouldReturnListMoviesMenuOptionWhenInputIsOneAndCurrentUserIsLibrarian(){
+    public void shouldReturnListMoviesMenuOptionWhenInputIsTwoAndCurrentUserIsLibrarian(){
         Library library = mock(Library.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
@@ -174,5 +174,18 @@ public class ParserTest {
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
         assertEquals(ListMoviesMenuOption.class, parser.parse("2").getClass());
+    }
+
+    @Test
+    public void shouldReturnCheckOutBookMenuOptionWhenInputIsThreeAndCurrentUserIsLibrarian(){
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        InputReader inputReader =  mock(InputReader.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        Authenticator authenticator = mock(Authenticator.class);
+        Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
+
+        assertEquals(CheckoutBookMenuOption.class, parser.parse("3").getClass());
     }
 }

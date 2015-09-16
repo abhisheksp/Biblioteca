@@ -136,4 +136,17 @@ public class ParserTest {
 
         assertEquals(CheckOutMovieMenuOption.class, parser.parse("5").getClass());
     }
+
+    @Test
+    public void shouldReturnQuitMenuOptionWhenInputIsSevenAndCurrentUserIsAuthenticatedUser(){
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        InputReader inputReader =  mock(InputReader.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        Authenticator authenticator = mock(Authenticator.class);
+        Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
+
+        assertEquals(QuitMenuOption.class, parser.parse("7").getClass());
+    }
 }

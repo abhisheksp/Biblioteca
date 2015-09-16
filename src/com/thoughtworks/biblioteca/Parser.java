@@ -36,6 +36,7 @@ public class Parser {
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library));
         menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
+        menuOptionsMap.put("7", new QuitMenuOption());
     }
 
     private void configureGuestMenuOptions(){

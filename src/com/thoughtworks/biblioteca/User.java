@@ -19,7 +19,6 @@ public class User {
         User thatUser = (User) that;
         if (!libraryNumber.equals(thatUser.libraryNumber)) return false;
         return password.equals(thatUser.password);
-
     }
 
     @Override

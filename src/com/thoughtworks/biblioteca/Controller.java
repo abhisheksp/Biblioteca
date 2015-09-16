@@ -38,7 +38,7 @@ public class Controller {
             if(menuOption.getClass() == LoginMenuOption.class)
                 currentUser = ((LoginMenuOption) menuOption).currentUser();
             if(menuOption.getClass() == LogoutMenuOption.class)
-                currentUser = new User("", "", "guest");
+                currentUser = ((LogoutMenuOption) menuOption).currentUser();
         } while (true);
     }
 }

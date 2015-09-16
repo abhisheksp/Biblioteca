@@ -31,7 +31,9 @@ public class CheckInBookMenuOptionTest {
     public void shouldCallInputReaderReadWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
 
         checkInBookMenuOption.doOperation();
 
@@ -42,7 +44,9 @@ public class CheckInBookMenuOptionTest {
     public void shouldCallLibraryCheckoutWithGivenBookWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
@@ -55,7 +59,9 @@ public class CheckInBookMenuOptionTest {
     public void shouldDisplaySuccessMessageAfterSuccessfulCheckIn() {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
@@ -69,7 +75,9 @@ public class CheckInBookMenuOptionTest {
     public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckIn() {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 

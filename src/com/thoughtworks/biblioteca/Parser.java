@@ -36,7 +36,7 @@ public class Parser {
         menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
-        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
+        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("7", new LogoutMenuOption());
         menuOptionsMap.put("8", new QuitMenuOption());
@@ -48,7 +48,7 @@ public class Parser {
         menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
-        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
+        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("6", new LogoutMenuOption());
         menuOptionsMap.put("7", new QuitMenuOption());

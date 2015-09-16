@@ -22,8 +22,10 @@ public class Controller {
     }
 
     public void interactWithUser() {
+        User currentUser = new User("", "", "guest");
+        MainMenuFactory mainMenuFactory = new MainMenuFactory();
         do {
-            mainMenu.displayMenuOptions();
+            mainMenuFactory.getMenu(currentUser).displayMenuOptions();
             String input = inputReader.read();
             MenuOption menuOption = parser.parse(input);
             menuOption.doOperation();

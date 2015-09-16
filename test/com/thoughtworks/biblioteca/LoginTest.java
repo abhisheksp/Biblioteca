@@ -8,40 +8,41 @@ import static org.mockito.Mockito.*;
 public class LoginTest {
 
     @Test
-    public void shouldCallReadOnInputTwiceToTakeLoginCredentialsWhenLoginIsCalled(){
+    public void shouldCallReadOnInputTwiceToTakeLoginCredentialsWhenLoginIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         Authenticator authenticator = mock(Authenticator.class);
-        Login login = new Login(authenticator, inputReader, consoleDisplayFactory);
+        Session session = mock(Session.class);
+        Login login = new Login(authenticator, inputReader, consoleDisplayFactory, session);
 
         when(inputReader.read()).thenReturn("222-2222", "juliusseizure");
-        login.login();
+        login.doOperation();
 
         verify(inputReader, times(2)).read();
     }
 
     @Test
-    public void shouldCallAuthenticateOnAuthenticatorWhenLoginIsCalled(){
+    public void shouldCallAuthenticateOnAuthenticatorWhenLoginIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         Authenticator authenticator = mock(Authenticator.class);
-        Login login = new Login(authenticator, inputReader, consoleDisplayFactory);
+        Session session = mock(Session.class);
+        Login login = new Login(authenticator, inputReader, consoleDisplayFactory, session);
 
         when(inputReader.read()).thenReturn("222-2222", "juliusseizure");
-        login.login();
+        login.doOperation();
 
         verify(authenticator).authenticate(anyString(), anyString());
     }
 
     @Test
-    public void shouldReturnSessionWithUserWhenLoginIsCalled(){
+    public void shouldReturnCurrentSessionWithUserWhenSessionIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         Authenticator authenticator = mock(Authenticator.class);
-        Login login = new Login(authenticator, inputReader, consoleDisplayFactory);
+        Session session =  new SessionFactory().getNewSession(new User("", "", "guest"));
+        Login login = new Login(authenticator, inputReader, consoleDisplayFactory, session);
 
-        when(inputReader.read()).thenReturn("222-2222", "juliusseizure");
-
-        assertEquals(Session.class, login.login().getClass());
+        assertEquals(Session.class, login.session().getClass());
     }
 }

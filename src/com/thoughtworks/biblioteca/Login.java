@@ -1,23 +1,31 @@
 package com.thoughtworks.biblioteca;
 
-public class Login {
+/* Login has authenticator, input reader, console display via which it prompts and authenticates user */
+public class Login implements MenuOption {
 
     private Authenticator authenticator;
     private InputReader inputReader;
     private ConsoleDisplayFactory consoleDisplayFactory;
+    private Session session;
 
-    public Login(Authenticator authenticator, InputReader inputReader, ConsoleDisplayFactory consoleDisplayFactory) {
+    public Login(Authenticator authenticator, InputReader inputReader, ConsoleDisplayFactory consoleDisplayFactory, Session session) {
         this.authenticator = authenticator;
         this.inputReader = inputReader;
         this.consoleDisplayFactory = consoleDisplayFactory;
+        this.session = session;
     }
 
-    public Session login() {
+    @Override
+    public void doOperation() {
         consoleDisplayFactory.getNewConsoleDisplay("Library Number :").display();
         String libraryNumber = inputReader.read();
         consoleDisplayFactory.getNewConsoleDisplay("Password :").display();
         String password = inputReader.read();
         User user = authenticator.authenticate(libraryNumber, password);
-        return new SessionFactory().getNewSession(user);
+        session = new SessionFactory().getNewSession(user);
+    }
+
+    public Session session() {
+        return session;
     }
 }

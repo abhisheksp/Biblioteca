@@ -26,7 +26,7 @@ public class Parser {
         if(currentUser.role().equals("librarian"))
             configureLibrarianMenuOptions();
         else if(currentUser.role().equals("user"))
-            configureUsertMenuOptions();
+            configureUserMenuOptions();
         else
             configureGuestMenuOptions();
     }
@@ -41,7 +41,7 @@ public class Parser {
         menuOptionsMap.put("8", new QuitMenuOption());
     }
 
-    private void configureUsertMenuOptions() {
+    private void configureUserMenuOptions() {
         menuOptionsMap = new HashMap<String, MenuOption>();
         menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));

@@ -24,7 +24,8 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser);
+        User user = new User("", "", "guest");
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
@@ -44,7 +45,8 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser);
+        User user = new User("", "", "guest");
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
@@ -64,7 +66,8 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser);
+        User user = new User("", "", "guest");
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
@@ -85,7 +88,8 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser);
+        User user = new User("", "", "guest");
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
         QuitMenuOption quitMenuOption = new QuitMenuOption();
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);

@@ -15,7 +15,7 @@ public class BibliotecaApplication {
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, user,authenticator);
         ArrayList<String> options = getOptions();
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
         controller.start();
     }
 
@@ -34,7 +34,7 @@ public class BibliotecaApplication {
         ArrayList<User> users = new ArrayList<User>();
         users.add(new User("222-2222", "juliusseizure", "user"));
         users.add(new User("444-2222", "randomstuff", "user"));
-        users.add(new User("888-2222", "morerandomstuff", "user"));
+        users.add(new User("888-2222", "blacksheep", "librarian"));
         return users;
     }
 }

@@ -36,8 +36,8 @@ public class Library {
         return false;
     }
 
-    public boolean checkIn(Book book) {
-        if (checkedOutBooks.contains(book)) {
+    public boolean checkIn(Book book, User currentUser) {
+        if (checkedOutBooks.contains(book) && bookUserMap.get(book).equals(currentUser)) {
             int bookIndex = checkedOutBooks.indexOf(book);
             availableBooks.add(checkedOutBooks.get(bookIndex));
             checkedOutBooks.remove(book);

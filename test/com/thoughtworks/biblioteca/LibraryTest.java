@@ -86,7 +86,7 @@ public class LibraryTest {
 
         library.checkOut(new Book("Seven Minutes"), user);
 
-        assertTrue(library.checkIn(new Book("Seven Minutes")));
+        assertTrue(library.checkIn(new Book("Seven Minutes"), user));
     }
 
     @Test
@@ -98,7 +98,8 @@ public class LibraryTest {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
         Library library = new Library(books, checkedOutBooks, bookUserHashMap);
+        User user = new User("222-2222", "juliusseizure", "user");
 
-        assertFalse(library.checkIn(new Book("Not Valid Stuff")));
+        assertFalse(library.checkIn(new Book("Not Valid Stuff"), user));
     }
 }

@@ -44,10 +44,11 @@ public class CheckInBookMenuOptionTest {
         Library library = mock(Library.class);
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+        ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
         checkInBookMenuOption.doOperation();
 
-        verify(library).checkIn(argumentCaptor.capture());
+        verify(library).checkIn(argumentCaptor.capture(), userArgumentCaptor.capture());
     }
 
     @Test
@@ -56,8 +57,9 @@ public class CheckInBookMenuOptionTest {
         Library library = mock(Library.class);
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+        ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
-        when(library.checkIn(argumentCaptor.capture())).thenReturn(true);
+        when(library.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(true);
         checkInBookMenuOption.doOperation();
 
         assertEquals("Thank you for returning the book.\n", outContent.toString());
@@ -69,8 +71,9 @@ public class CheckInBookMenuOptionTest {
         Library library = mock(Library.class);
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+        ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
-        when(library.checkIn(argumentCaptor.capture())).thenReturn(false);
+        when(library.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(false);
         checkInBookMenuOption.doOperation();
 
         assertEquals("That is not a valid book to return.\n", outContent.toString());

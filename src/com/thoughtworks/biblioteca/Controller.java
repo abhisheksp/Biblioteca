@@ -1,7 +1,5 @@
 package com.thoughtworks.biblioteca;
 
-import org.junit.contrib.java.lang.system.ExpectedSystemExit;
-
 public class Controller {
 
     WelcomeMessage welcomeMessage;
@@ -41,7 +39,6 @@ public class Controller {
                 currentUser = ((LoginMenuOption) menuOption).currentUser();
             if(menuOption.getClass() == LogoutMenuOption.class)
                 currentUser = new User("", "", "guest");
-
         } while (true);
     }
 }

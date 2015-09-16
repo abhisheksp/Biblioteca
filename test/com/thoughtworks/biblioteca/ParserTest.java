@@ -229,7 +229,7 @@ public class ParserTest {
     }
 
     @Test
-    public void shouldReturnLogoutMenuOptionWhenInputIsSixAndCurrentUserIsLibrarian(){
+    public void shouldReturnLogoutMenuOptionWhenInputIsSevenAndCurrentUserIsLibrarian(){
         Library library = mock(Library.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
@@ -238,6 +238,6 @@ public class ParserTest {
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
-        assertEquals(LogoutMenuOption.class, parser.parse("6").getClass());
+        assertEquals(LogoutMenuOption.class, parser.parse("7").getClass());
     }
 }

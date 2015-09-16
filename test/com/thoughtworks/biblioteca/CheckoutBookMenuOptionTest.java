@@ -30,7 +30,9 @@ public class CheckoutBookMenuOptionTest {
     public void shouldCallInputReaderReadWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library, user, consoleDisplayFactory);
 
         checkoutBookMenuOption.doOperation();
 
@@ -41,37 +43,14 @@ public class CheckoutBookMenuOptionTest {
     public void shouldCallLibraryCheckoutWithGivenBookWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
-        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
+        ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
         checkoutBookMenuOption.doOperation();
 
-        verify(library).checkOut(argumentCaptor.capture());
-    }
-
-    @Test
-    public void shouldDisplaySuccessAfterSuccessfulCheckout() {
-        InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
-        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
-        ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
-
-        when(library.checkOut(argumentCaptor.capture())).thenReturn(true);
-        checkoutBookMenuOption.doOperation();
-
-        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckout() {
-        InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
-        CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library);
-        ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
-
-        when(library.checkOut(argumentCaptor.capture())).thenReturn(false);
-        checkoutBookMenuOption.doOperation();
-
-        assertEquals("That book is not available.\n", outContent.toString());
+        verify(library).checkOut(argumentCaptor.capture(), userArgumentCaptor.capture());
     }
 }

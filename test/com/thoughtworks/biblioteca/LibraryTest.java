@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
@@ -32,7 +33,9 @@ public class LibraryTest {
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
-        Library library = new Library(books);
+        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+        HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
+        Library library = new Library(books, checkedOutBooks, bookUserHashMap);
 
         library.format();
 
@@ -48,9 +51,12 @@ public class LibraryTest {
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
-        Library library = new Library(books);
+        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+        HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
+        Library library = new Library(books, checkedOutBooks, bookUserHashMap);
+        User user = new User("222-2222", "juliusseizure", "user");
 
-        assertTrue(library.checkOut(new Book("Seven Minutes")));
+        assertTrue(library.checkOut(new Book("Seven Minutes"), user));
     }
 
     @Test
@@ -59,9 +65,12 @@ public class LibraryTest {
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
-        Library library = new Library(books);
+        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+        HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
+        Library library = new Library(books, checkedOutBooks, bookUserHashMap);
+        User user = new User("222-2222", "juliusseizure", "user");
 
-        assertFalse(library.checkOut(new Book("Not Valid Stuff")));
+        assertFalse(library.checkOut(new Book("Not Valid Stuff"), user));
     }
 
     @Test
@@ -70,9 +79,12 @@ public class LibraryTest {
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
-        Library library = new Library(books);
+        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+        HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
+        Library library = new Library(books, checkedOutBooks, bookUserHashMap);
+        User user = new User("222-2222", "juliusseizure", "user");
 
-        library.checkOut(new Book("Seven Minutes"));
+        library.checkOut(new Book("Seven Minutes"), user);
 
         assertTrue(library.checkIn(new Book("Seven Minutes")));
     }
@@ -83,7 +95,9 @@ public class LibraryTest {
         books.add(new Book("Brief History of Time", "Stephen Hawking", 1988));
         books.add(new Book("Crime and Punishment", "Fyodor Dostoyevsky", 1866));
         books.add(new Book("Seven Minutes", "Irving Wallace", 1969));
-        Library library = new Library(books);
+        ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+        HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
+        Library library = new Library(books, checkedOutBooks, bookUserHashMap);
 
         assertFalse(library.checkIn(new Book("Not Valid Stuff")));
     }

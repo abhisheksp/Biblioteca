@@ -34,4 +34,17 @@ public class LoginMenuOptionTest {
 
         verify(authenticator).authenticate(anyString(), anyString());
     }
+
+    @Test
+    public void shouldReturnCurrentUserWhenCurrentUserIsCalled() {
+        InputReader inputReader = mock(InputReader.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Authenticator authenticator = mock(Authenticator.class);
+        User user = new User("", "", "guest");
+        LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, user);
+
+        loginMenuOption.currentUser();
+
+        assertEquals(User.class, loginMenuOption.currentUser().getClass());
+    }
 }

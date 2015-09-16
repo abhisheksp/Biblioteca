@@ -25,6 +25,13 @@ public class Parser {
     private void configureMenuOptionsMap(User currentUser) {
         if(currentUser.role().equals("guest"))
             configureGuestMenuOptions();
+        else
+            configureUsertMenuOptions();
+    }
+
+    private void configureUsertMenuOptions() {
+        menuOptionsMap = new HashMap<String, MenuOption>();
+        menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
     }
 
     private void configureGuestMenuOptions(){

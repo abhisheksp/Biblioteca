@@ -143,7 +143,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "user");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -239,5 +239,31 @@ public class ParserTest {
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
         assertEquals(LogoutMenuOption.class, parser.parse("7").getClass());
+    }
+
+    @Test
+    public void shouldReturnLogoutMenuOptionWhenInputIsSixAndCurrentUserIsAuthenticatedUser(){
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        InputReader inputReader =  mock(InputReader.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        User currentUser = new User("222-2222", "juliusseizure", "user");
+        Authenticator authenticator = mock(Authenticator.class);
+        Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
+
+        assertEquals(LogoutMenuOption.class, parser.parse("6").getClass());
+    }
+
+    @Test
+    public void shouldReturnInvalidMenuOptionWhenInputIsInvalid(){
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        InputReader inputReader =  mock(InputReader.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        User currentUser = new User("222-2222", "juliusseizure", "user");
+        Authenticator authenticator = mock(Authenticator.class);
+        Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
+
+        assertEquals(InvalidMenuOption.class, parser.parse("*").getClass());
     }
 }

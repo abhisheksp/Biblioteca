@@ -40,6 +40,7 @@ public class Parser {
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("7", new LogoutMenuOption());
         menuOptionsMap.put("8", new QuitMenuOption());
+        menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!", consoleDisplayFactory));
     }
 
     private void configureUserMenuOptions() {
@@ -49,7 +50,9 @@ public class Parser {
         menuOptionsMap.put("3", new CheckoutBookMenuOption(inputReader, library));
         menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library));
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
+        menuOptionsMap.put("6", new LogoutMenuOption());
         menuOptionsMap.put("7", new QuitMenuOption());
+        menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!", consoleDisplayFactory));
     }
 
     private void configureGuestMenuOptions(){
@@ -59,6 +62,7 @@ public class Parser {
         menuOptionsMap.put("3", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("4", new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, currentUser));
         menuOptionsMap.put("5", new QuitMenuOption());
+        menuOptionsMap.put("invalid", new InvalidMenuOption("Select a valid option!", consoleDisplayFactory));
     }
 
     public MenuOption parse(String rawInput) {

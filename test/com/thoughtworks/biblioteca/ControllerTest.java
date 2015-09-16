@@ -30,7 +30,7 @@ public class ControllerTest {
         Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
-        when(inputReader.read()).thenReturn("*", "2");
+        when(inputReader.read()).thenReturn("*", "5");
         when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
         controller.start();
 
@@ -53,7 +53,7 @@ public class ControllerTest {
         Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
-        when(inputReader.read()).thenReturn("*", "2");
+        when(inputReader.read()).thenReturn("*", "5");
         when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
         controller.start();
 
@@ -76,7 +76,7 @@ public class ControllerTest {
         Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
-        when(inputReader.read()).thenReturn("*", "2");
+        when(inputReader.read()).thenReturn("*", "5");
         when(parser.parse(anyString())).thenReturn(new InvalidMenuOption("Select a valid option!", consoleDisplayFactory), new QuitMenuOption());
         controller.start();
 
@@ -101,7 +101,7 @@ public class ControllerTest {
         QuitMenuOption quitMenuOption = new QuitMenuOption();
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
-        when(inputReader.read()).thenReturn("2");
+        when(inputReader.read()).thenReturn("5");
         when(parser.parse(anyString())).thenReturn(quitMenuOption);
         controller.start();
 

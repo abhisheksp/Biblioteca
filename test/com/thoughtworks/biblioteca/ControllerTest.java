@@ -25,7 +25,9 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest");
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
@@ -46,7 +48,9 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest");
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
@@ -67,7 +71,9 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest");
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         when(inputReader.read()).thenReturn("*", "2");
@@ -89,7 +95,9 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest");
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user);
+        Library library = mock(Library.class);
+        MovieLibrary movieLibrary = mock(MovieLibrary.class);
+        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
         QuitMenuOption quitMenuOption = new QuitMenuOption();
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);

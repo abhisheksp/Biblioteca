@@ -32,6 +32,7 @@ public class Parser {
         menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("3", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
+        menuOptionsMap.put("4", new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, currentUser));
     }
 
     public MenuOption parse(String rawInput) {

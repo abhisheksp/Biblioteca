@@ -21,6 +21,20 @@ public class MainMenu {
         return stringBuilder.toString();
     }
 
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) return true;
+        if (that == null || getClass() != that.getClass()) return false;
+        MainMenu thatMainMenu = (MainMenu) that;
+        return options.equals(thatMainMenu.options);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return options.hashCode();
+    }
+
     public void displayMenuOptions() {
         consoleDisplayFactory.getNewConsoleDisplay(formatOptions()).display();
     }

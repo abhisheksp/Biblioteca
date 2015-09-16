@@ -23,10 +23,17 @@ public class Parser {
     }
 
     private void configureMenuOptionsMap(User currentUser) {
-        if(currentUser.role().equals("guest"))
-            configureGuestMenuOptions();
-        else
+        if(currentUser.role().equals("librarian"))
+            configureLibrarianMenuOptions();
+        else if(currentUser.role().equals("user"))
             configureUsertMenuOptions();
+        else
+            configureGuestMenuOptions();
+    }
+
+    private void configureLibrarianMenuOptions() {
+        menuOptionsMap = new HashMap<String, MenuOption>();
+        menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
     }
 
     private void configureUsertMenuOptions() {

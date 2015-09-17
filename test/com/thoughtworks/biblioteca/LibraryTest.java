@@ -105,11 +105,14 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnBookCheckoutInformationWhenBookCheckoutInformationIsCalled(){
+    public void shouldReturnBookCheckoutInformationWhenBookCheckoutInformationIsCalled() {
         Library library = new LibraryFactory().getDefaultLibrary();
 
         library.checkOut(new Book("Seven Minutes"), new User("222-2222", "juliusseizure", "user"));
 
-        assertEquals("blah", library.bookCheckOutInformation());
+        assertEquals("Books Checkout Information\n" +
+                "--------------------------\n" +
+                "Book                          User                          \n" +
+                "Seven Minutes                 222-2222                      \n", library.bookCheckOutInformation());
     }
 }

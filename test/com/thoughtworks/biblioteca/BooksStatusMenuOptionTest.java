@@ -15,6 +15,7 @@ public class BooksStatusMenuOptionTest {
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
         BooksStatusMenuOption booksStatusMenuOption = new BooksStatusMenuOption(library, consoleDisplayFactory);
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("doesn't matter"));
         when(library.bookCheckOutInformation()).thenReturn("doesn't matter");
         booksStatusMenuOption.doOperation();
 

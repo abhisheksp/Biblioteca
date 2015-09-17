@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class MainMenuFactoryTest {
 
     @Test
-    public void shouldReturnGuestMenuWhenGuestMenuIsCalled(){
+    public void shouldReturnGuestMenuWhenGuestMenuIsCalled() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. List Movies");
@@ -24,15 +24,16 @@ public class MainMenuFactoryTest {
     }
 
     @Test
-    public void shouldReturnUserMenuWhenUserMenuIsCalled(){
+    public void shouldReturnUserMenuWhenUserMenuIsCalled() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. List Movies");
         options.add("3. Checkout Book");
         options.add("4. Checkin Book");
         options.add("5. Checkout Movie");
-        options.add("6. Logout");
-        options.add("7. Quit");
+        options.add("6. User Information");
+        options.add("7. Logout");
+        options.add("8. Quit");
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
@@ -41,7 +42,7 @@ public class MainMenuFactoryTest {
     }
 
     @Test
-    public void shouldReturnLibrarianMenuWhenLibrarianMenuIsCalled(){
+    public void shouldReturnLibrarianMenuWhenLibrarianMenuIsCalled() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. List Movies");
@@ -49,8 +50,9 @@ public class MainMenuFactoryTest {
         options.add("4. Checkin Book");
         options.add("5. Checkout Movie");
         options.add("6. Book Status");
-        options.add("7. Logout");
-        options.add("8. Quit");
+        options.add("7. User Information");
+        options.add("8. Logout");
+        options.add("9. Quit");
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
@@ -59,7 +61,7 @@ public class MainMenuFactoryTest {
     }
 
     @Test
-    public void shouldReturnGuestMenuWhenGuestUserIsPassed(){
+    public void shouldReturnGuestMenuWhenGuestUserIsPassed() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. List Movies");
@@ -74,15 +76,16 @@ public class MainMenuFactoryTest {
     }
 
     @Test
-    public void shouldReturnUserMenuWhenAuthenticatedUserIsPassed(){
+    public void shouldReturnUserMenuWhenAuthenticatedUserIsPassed() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. List Movies");
         options.add("3. Checkout Book");
         options.add("4. Checkin Book");
         options.add("5. Checkout Movie");
-        options.add("6. Logout");
-        options.add("7. Quit");
+        options.add("6. User Information");
+        options.add("7. Logout");
+        options.add("8. Quit");
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
@@ -91,7 +94,7 @@ public class MainMenuFactoryTest {
     }
 
     @Test
-    public void shouldReturnLibrarianMenuWhenLibrarianUserIsPassed(){
+    public void shouldReturnLibrarianMenuWhenLibrarianUserIsPassed() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. List Movies");
@@ -99,8 +102,9 @@ public class MainMenuFactoryTest {
         options.add("4. Checkin Book");
         options.add("5. Checkout Movie");
         options.add("6. Book Status");
-        options.add("7. Logout");
-        options.add("8. Quit");
+        options.add("7. User Information");
+        options.add("8. Logout");
+        options.add("9. Quit");
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();

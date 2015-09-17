@@ -33,8 +33,9 @@ public class MainMenuFactory {
             options.add("3. Checkout Book");
             options.add("4. Checkin Book");
             options.add("5. Checkout Movie");
-            options.add("6. Logout");
-            options.add("7. Quit");
+            options.add("6. User Information");
+            options.add("7. Logout");
+            options.add("8. Quit");
         mainMenu =  new MainMenu(options, new ConsoleDisplayFactory());
         return mainMenu;
     }
@@ -47,8 +48,9 @@ public class MainMenuFactory {
         options.add("4. Checkin Book");
         options.add("5. Checkout Movie");
         options.add("6. Book Status");
-        options.add("7. Logout");
-        options.add("8. Quit");
+        options.add("7. User Information");
+        options.add("8. Logout");
+        options.add("9. Quit");
         mainMenu =  new MainMenu(options, new ConsoleDisplayFactory());
         return mainMenu;
     }

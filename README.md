@@ -1,9 +1,7 @@
 
 ##Description
-Library Management Application that supports the following features:
-* Welcome Message
-* Book Listing 
-* Book Checkout and Checkin
+Library Management Application that supports a user system with book checkIn/checkOut, movie checkOut and checkOut tracking information
+for librarian.
 
 ##Dependencies
 * JDK(1.6 or higher)

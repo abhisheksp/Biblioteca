@@ -31,4 +31,8 @@ public class User {
     public String role() {
         return this.role;
     }
+
+    public String libraryNumber() {
+        return this.libraryNumber;
+    }
 }

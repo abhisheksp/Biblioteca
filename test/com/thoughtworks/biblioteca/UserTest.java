@@ -50,4 +50,11 @@ public class UserTest {
 
         assertEquals("librarian", user.role());
     }
+
+    @Test
+    public void shouldReturnLibraryNumberWhenLibraryNumberIsCalled(){
+        User user = new User("123-4567", "password", "librarian");
+
+        assertEquals("123-4567", user.libraryNumber());
+    }
 }

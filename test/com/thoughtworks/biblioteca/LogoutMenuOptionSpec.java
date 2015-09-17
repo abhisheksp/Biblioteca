@@ -14,4 +14,13 @@ public class LogoutMenuOptionSpec {
 
         assertEquals("guest", logoutMenuOption.currentUser().role());
     }
+
+    @Test
+    public void shouldGetCurrentUserWhenCurrentUserIsCalled(){
+        LogoutMenuOption logoutMenuOption = new LogoutMenuOption();
+
+        logoutMenuOption.doOperation();
+
+        assertEquals(new User("", "", "guest"), logoutMenuOption.currentUser());
+    }
 }

@@ -17,6 +17,8 @@ public class LoginMenuOption implements MenuOption {
 
     @Override
     public void doOperation() {
+        consoleDisplayFactory.getNewConsoleDisplay("Enter Login Credentials").display();
+        consoleDisplayFactory.getNewConsoleDisplay("---------------------------").display();
         consoleDisplayFactory.getNewConsoleDisplay("Library Number :").display();
         String libraryNumber = inputReader.read();
         consoleDisplayFactory.getNewConsoleDisplay("Password :").display();

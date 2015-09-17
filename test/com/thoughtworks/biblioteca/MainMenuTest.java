@@ -40,13 +40,17 @@ public class MainMenuTest {
 
         mainMenu.displayMenuOptions();
 
-        assertEquals("1. List Books\n" +
+        assertEquals("MAIN MENU\n" +
+                "---------------------------\n" +
+                "1. List Books\n" +
                 "2. Quit\n" +
                 "3. Checkout Book\n" +
                 "4. Checkin Book\n" +
                 "5. List Movies\n" +
                 "6. Checkout Movie\n" +
-                "\n", outContent.toString());
+                "\n" +
+                "---------------------------\n" +
+                "Choose an option : \n", outContent.toString());
     }
 
     @Test
@@ -65,7 +69,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldBeEqualToAnotherMainMenuWithSameOptions(){
+    public void shouldBeEqualToAnotherMainMenuWithSameOptions() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");
@@ -79,7 +83,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldNotBeEqualToAnotherMainMenuWithDifferentOptions(){
+    public void shouldNotBeEqualToAnotherMainMenuWithDifferentOptions() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");
@@ -95,7 +99,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldNotBeEqualToNull(){
+    public void shouldNotBeEqualToNull() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");
@@ -109,7 +113,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldNotBeEqualToNonMainMenuEntity(){
+    public void shouldNotBeEqualToNonMainMenuEntity() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");
@@ -123,7 +127,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void shouldHaveSameHashCodeAsAnotherMainMenuWithSameOption(){
+    public void shouldHaveSameHashCodeAsAnotherMainMenuWithSameOption() {
         ArrayList<String> options = new ArrayList<String>();
         options.add("1. List Books");
         options.add("2. Quit");

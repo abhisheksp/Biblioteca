@@ -36,6 +36,10 @@ public class MainMenu {
     }
 
     public void displayMenuOptions() {
+        consoleDisplayFactory.getNewConsoleDisplay("MAIN MENU").display();
+        consoleDisplayFactory.getNewConsoleDisplay("---------------------------").display();
         consoleDisplayFactory.getNewConsoleDisplay(formatOptions()).display();
+        consoleDisplayFactory.getNewConsoleDisplay("---------------------------").display();
+        consoleDisplayFactory.getNewConsoleDisplay("Choose an option : ").display();
     }
 }

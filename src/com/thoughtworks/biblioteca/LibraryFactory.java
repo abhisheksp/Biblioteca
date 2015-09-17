@@ -3,7 +3,7 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* Library factory manufactures a default Library and returns it */
+/* BookLibrary factory manufactures a default BookLibrary and returns it */
 public class LibraryFactory {
 
     ArrayList<Book> books;
@@ -19,7 +19,7 @@ public class LibraryFactory {
         this.bookUserHashMap = new HashMap<Book, User>();
     }
 
-    public Library getDefaultLibrary() {
-        return new Library(books, checkedOutBooks, bookUserHashMap);
+    public BookLibrary getDefaultLibrary() {
+        return new BookLibrary(books, checkedOutBooks, bookUserHashMap);
     }
 }

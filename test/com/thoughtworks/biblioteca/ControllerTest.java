@@ -25,10 +25,10 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest", "", "", "");
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
-        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
+        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, bookLibrary, movieLibrary);
         ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);
 
         when(mainMenuFactory.getMenu(argumentCaptor.capture())).thenReturn(new MainMenuFactory().guestMenu());
@@ -50,10 +50,10 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest", "", "", "");
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
-        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
+        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, bookLibrary, movieLibrary);
         ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);
 
         when(mainMenuFactory.getMenu(argumentCaptor.capture())).thenReturn(new MainMenuFactory().guestMenu());
@@ -75,10 +75,10 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest", "", "", "");
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
-        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
+        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, bookLibrary, movieLibrary);
         ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);
 
         when(mainMenuFactory.getMenu(argumentCaptor.capture())).thenReturn(new MainMenuFactory().guestMenu());
@@ -101,11 +101,11 @@ public class ControllerTest {
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
         User user = new User("", "", "guest", "", "", "");
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
         QuitMenuOption quitMenuOption = new QuitMenuOption();
-        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
+        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, bookLibrary, movieLibrary);
         ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);
 
         when(mainMenuFactory.getMenu(argumentCaptor.capture())).thenReturn(new MainMenuFactory().guestMenu());

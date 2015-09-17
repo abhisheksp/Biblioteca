@@ -30,10 +30,10 @@ public class CheckInBookMenuOptionTest {
     @Test
     public void shouldCallInputReaderReadWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, bookLibrary, user, consoleDisplayFactory);
 
         checkInBookMenuOption.doOperation();
 
@@ -43,29 +43,29 @@ public class CheckInBookMenuOptionTest {
     @Test
     public void shouldCallLibraryCheckoutWithGivenBookWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, bookLibrary, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
         checkInBookMenuOption.doOperation();
 
-        verify(library).checkIn(argumentCaptor.capture(), userArgumentCaptor.capture());
+        verify(bookLibrary).checkIn(argumentCaptor.capture(), userArgumentCaptor.capture());
     }
 
     @Test
     public void shouldDisplaySuccessMessageAfterSuccessfulCheckIn() {
         InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, bookLibrary, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
-        when(library.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(true);
+        when(bookLibrary.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(true);
         checkInBookMenuOption.doOperation();
 
         assertEquals("Enter Book Name : \n" +
@@ -75,14 +75,14 @@ public class CheckInBookMenuOptionTest {
     @Test
     public void shouldDisplayUnsuccessfulMessageAfterUnsuccessfulCheckIn() {
         InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, bookLibrary, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
 
-        when(library.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(false);
+        when(bookLibrary.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(false);
         checkInBookMenuOption.doOperation();
 
         assertEquals("Enter Book Name : \n" +

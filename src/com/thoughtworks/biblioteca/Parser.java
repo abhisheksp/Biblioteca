@@ -5,16 +5,16 @@ import java.util.HashMap;
 public class Parser {
 
     private InputReader inputReader;
-    private Library library;
+    private BookLibrary bookLibrary;
     private HashMap<String, MenuOption> menuOptionsMap;
     private ConsoleDisplayFactory consoleDisplayFactory;
     private MovieLibrary movieLibrary;
     private User currentUser;
     private Authenticator authenticator;
 
-    public Parser(InputReader inputReader, Library library, MovieLibrary movieLibrary, ConsoleDisplayFactory consoleDisplayFactory, User currentUser, Authenticator authenticator) {
+    public Parser(InputReader inputReader, BookLibrary bookLibrary, MovieLibrary movieLibrary, ConsoleDisplayFactory consoleDisplayFactory, User currentUser, Authenticator authenticator) {
         this.inputReader = inputReader;
-        this.library = library;
+        this.bookLibrary = bookLibrary;
         this.consoleDisplayFactory = consoleDisplayFactory;
         this.movieLibrary = movieLibrary;
         this.currentUser = currentUser;
@@ -33,12 +33,12 @@ public class Parser {
 
     private void configureLibrarianMenuOptions() {
         menuOptionsMap = new HashMap<String, MenuOption>();
-        menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
+        menuOptionsMap.put("1", new ListBooksMenuOption(bookLibrary, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
-        menuOptionsMap.put("3", new CheckOutBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
-        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
+        menuOptionsMap.put("3", new CheckOutBookMenuOption(inputReader, bookLibrary, currentUser, consoleDisplayFactory));
+        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, bookLibrary, currentUser, consoleDisplayFactory));
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
-        menuOptionsMap.put("6", new BooksStatusMenuOption(library, consoleDisplayFactory));
+        menuOptionsMap.put("6", new BooksStatusMenuOption(bookLibrary, consoleDisplayFactory));
         menuOptionsMap.put("7", new UserInformationMenuOption(consoleDisplayFactory, currentUser));
         menuOptionsMap.put("8", new LogoutMenuOption());
         menuOptionsMap.put("9", new QuitMenuOption());
@@ -47,10 +47,10 @@ public class Parser {
 
     private void configureUserMenuOptions() {
         menuOptionsMap = new HashMap<String, MenuOption>();
-        menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
+        menuOptionsMap.put("1", new ListBooksMenuOption(bookLibrary, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
-        menuOptionsMap.put("3", new CheckOutBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
-        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, library, currentUser, consoleDisplayFactory));
+        menuOptionsMap.put("3", new CheckOutBookMenuOption(inputReader, bookLibrary, currentUser, consoleDisplayFactory));
+        menuOptionsMap.put("4", new CheckInBookMenuOption(inputReader, bookLibrary, currentUser, consoleDisplayFactory));
         menuOptionsMap.put("5", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("6", new UserInformationMenuOption(consoleDisplayFactory, currentUser));
         menuOptionsMap.put("7", new LogoutMenuOption());
@@ -60,7 +60,7 @@ public class Parser {
 
     private void configureGuestMenuOptions(){
         menuOptionsMap = new HashMap<String, MenuOption>();
-        menuOptionsMap.put("1", new ListBooksMenuOption(library, consoleDisplayFactory));
+        menuOptionsMap.put("1", new ListBooksMenuOption(bookLibrary, consoleDisplayFactory));
         menuOptionsMap.put("2", new ListMoviesMenuOption(movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("3", new CheckOutMovieMenuOption(inputReader, movieLibrary, consoleDisplayFactory));
         menuOptionsMap.put("4", new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, currentUser));

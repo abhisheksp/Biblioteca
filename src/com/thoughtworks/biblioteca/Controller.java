@@ -9,17 +9,17 @@ public class Controller {
     InputReader inputReader;
     Parser parser;
     User currentUser;
-    Library library;
+    BookLibrary bookLibrary;
     MovieLibrary movieLibrary;
 
-    public Controller(WelcomeMessage welcomeMessage, MainMenuFactory mainMenuFactory, ConsoleDisplayFactory consoleDisplayFactory, InputReader inputReader, Parser parser, User currentUser, Library library, MovieLibrary movieLibrary) {
+    public Controller(WelcomeMessage welcomeMessage, MainMenuFactory mainMenuFactory, ConsoleDisplayFactory consoleDisplayFactory, InputReader inputReader, Parser parser, User currentUser, BookLibrary bookLibrary, MovieLibrary movieLibrary) {
         this.welcomeMessage = welcomeMessage;
         this.mainMenuFactory = mainMenuFactory;
         this.consoleDisplayFactory = consoleDisplayFactory;
         this.inputReader = inputReader;
         this.parser = parser;
         this.currentUser = currentUser;
-        this.library = library;
+        this.bookLibrary = bookLibrary;
         this.movieLibrary = movieLibrary;
     }
 
@@ -32,7 +32,7 @@ public class Controller {
         do {
             mainMenuFactory.getMenu(currentUser).displayMenuOptions();
             String input = inputReader.read();
-            parser = new ParserFactory().getNewParser(library, movieLibrary, currentUser);
+            parser = new ParserFactory().getNewParser(bookLibrary, movieLibrary, currentUser);
             MenuOption menuOption = parser.parse(input);
             menuOption.doOperation();
             if(menuOption.getClass() == LoginMenuOption.class)

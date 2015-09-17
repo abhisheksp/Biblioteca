@@ -11,21 +11,21 @@ public class ListBooksMenuOptionTest {
 
     @Test
     public void shouldCallLibraryDisplayWhenDoOperationIsCalled(){
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, consoleDisplayFactory);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(bookLibrary, consoleDisplayFactory);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("blah"));
         listBooksMenuOption.doOperation();
 
-        verify(library).format();
+        verify(bookLibrary).format();
     }
 
     @Test
     public void shouldCallConsoleDisplayOnReturnedStringWhenDoOperationIsCalled(){
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(library, consoleDisplayFactory);
+        ListBooksMenuOption listBooksMenuOption = new ListBooksMenuOption(bookLibrary, consoleDisplayFactory);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("blah"));
         listBooksMenuOption.doOperation();

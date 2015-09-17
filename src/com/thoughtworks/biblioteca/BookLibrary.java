@@ -3,14 +3,14 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* Library has a list of books and can do checkin, checkout operations */
-public class Library {
+/* BookLibrary has a list of books and can do checkin, checkout operations */
+public class BookLibrary {
 
     ArrayList<Book> availableBooks;
     ArrayList<Book> checkedOutBooks;
     HashMap<Book, User> bookUserMap;
 
-    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkedOutBooks, HashMap<Book, User> bookUserMap) {
+    public BookLibrary(ArrayList<Book> availableBooks, ArrayList<Book> checkedOutBooks, HashMap<Book, User> bookUserMap) {
         this.availableBooks = availableBooks;
         this.checkedOutBooks = checkedOutBooks;
         this.bookUserMap = bookUserMap;

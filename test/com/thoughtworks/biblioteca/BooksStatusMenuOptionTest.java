@@ -11,25 +11,25 @@ public class BooksStatusMenuOptionTest {
 
     @Test
     public void shouldCallLibraryCheckOutInformationWhenDoOperationIsCalled() {
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        BooksStatusMenuOption booksStatusMenuOption = new BooksStatusMenuOption(library, consoleDisplayFactory);
+        BooksStatusMenuOption booksStatusMenuOption = new BooksStatusMenuOption(bookLibrary, consoleDisplayFactory);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("doesn't matter"));
-        when(library.bookCheckOutInformation()).thenReturn("doesn't matter");
+        when(bookLibrary.bookCheckOutInformation()).thenReturn("doesn't matter");
         booksStatusMenuOption.doOperation();
 
-        verify(library).bookCheckOutInformation();
+        verify(bookLibrary).bookCheckOutInformation();
     }
 
     @Test
     public void shouldGetNewConsoleDisplayWhenDoOperationIsCalled() {
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        BooksStatusMenuOption booksStatusMenuOption = new BooksStatusMenuOption(library, consoleDisplayFactory);
+        BooksStatusMenuOption booksStatusMenuOption = new BooksStatusMenuOption(bookLibrary, consoleDisplayFactory);
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("doesn't matter"));
-        when(library.bookCheckOutInformation()).thenReturn("doesn't matter");
+        when(bookLibrary.bookCheckOutInformation()).thenReturn("doesn't matter");
         booksStatusMenuOption.doOperation();
 
         verify(consoleDisplayFactory).getNewConsoleDisplay(anyString());

@@ -19,7 +19,7 @@ public class LoginMenuOption implements MenuOption {
     public void doOperation() {
         consoleDisplayFactory.getNewConsoleDisplay("Enter Login Credentials").display();
         consoleDisplayFactory.getNewConsoleDisplay("---------------------------").display();
-        consoleDisplayFactory.getNewConsoleDisplay("Library Number :").display();
+        consoleDisplayFactory.getNewConsoleDisplay("BookLibrary Number :").display();
         String libraryNumber = inputReader.read();
         consoleDisplayFactory.getNewConsoleDisplay("Password :").display();
         String password = inputReader.read();

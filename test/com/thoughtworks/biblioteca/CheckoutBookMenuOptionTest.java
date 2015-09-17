@@ -29,10 +29,10 @@ public class CheckOutBookMenuOptionTest {
     @Test
     public void shouldCallInputReaderReadWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        CheckOutBookMenuOption checkOutBookMenuOption = new CheckOutBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        CheckOutBookMenuOption checkOutBookMenuOption = new CheckOutBookMenuOption(inputReader, bookLibrary, user, consoleDisplayFactory);
         ConsoleDisplay consoleDisplay = new ConsoleDisplay("doesn't matter");
 
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
@@ -44,10 +44,10 @@ public class CheckOutBookMenuOptionTest {
     @Test
     public void shouldCallLibraryCheckoutWithGivenBookWhenDoOperationIsCalled() {
         InputReader inputReader = mock(InputReader.class);
-        Library library = mock(Library.class);
+        BookLibrary bookLibrary = mock(BookLibrary.class);
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
-        CheckOutBookMenuOption checkOutBookMenuOption = new CheckOutBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        CheckOutBookMenuOption checkOutBookMenuOption = new CheckOutBookMenuOption(inputReader, bookLibrary, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
         ConsoleDisplay consoleDisplay = new ConsoleDisplay("doesn't matter");
@@ -55,6 +55,6 @@ public class CheckOutBookMenuOptionTest {
         when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         checkOutBookMenuOption.doOperation();
 
-        verify(library).checkOut(argumentCaptor.capture(), userArgumentCaptor.capture());
+        verify(bookLibrary).checkOut(argumentCaptor.capture(), userArgumentCaptor.capture());
     }
 }

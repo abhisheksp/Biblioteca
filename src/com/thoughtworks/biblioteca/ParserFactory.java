@@ -12,7 +12,7 @@ public class ParserFactory {
         this.authenticator = new AuthenticatorFactory().getDefaultAuthenticator();
     }
 
-    public Parser getNewParser(Library library, MovieLibrary movieLibrary, User currentUser) {
-        return new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
+    public Parser getNewParser(BookLibrary bookLibrary, MovieLibrary movieLibrary, User currentUser) {
+        return new Parser(inputReader, bookLibrary, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
     }
 }

@@ -8,7 +8,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class LibraryFactoryTest {
+public class BookLibraryFactoryTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -25,11 +25,11 @@ public class LibraryFactoryTest {
 
     @Test
     public void shouldReturnDefaultLibrary() {
-        Library library = new LibraryFactory().getDefaultLibrary();
+        BookLibrary bookLibrary = new LibraryFactory().getDefaultLibrary();
 
         assertEquals(String.format("%-30s%-30s%-30s\n", "Name", "Author", "Year Published") +
                 String.format("%-30s%-30s%-30s\n", "Brief History of Time", "Stephen Hawking", "1988") +
                 String.format("%-30s%-30s%-30s\n", "Crime and Punishment", "Fyodor Dostoyevsky", "1866") +
-                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), library.format());
+                String.format("%-30s%-30s%-30s\n", "Seven Minutes", "Irving Wallace", "1969"), bookLibrary.format());
     }
 }

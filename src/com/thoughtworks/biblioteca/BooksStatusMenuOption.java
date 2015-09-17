@@ -2,17 +2,17 @@ package com.thoughtworks.biblioteca;
 
 public class BooksStatusMenuOption implements MenuOption{
 
-    private Library library;
+    private BookLibrary bookLibrary;
     private ConsoleDisplayFactory consoleDisplayFactory;
 
-    public BooksStatusMenuOption(Library library, ConsoleDisplayFactory consoleDisplayFactory) {
-        this.library = library;
+    public BooksStatusMenuOption(BookLibrary bookLibrary, ConsoleDisplayFactory consoleDisplayFactory) {
+        this.bookLibrary = bookLibrary;
         this.consoleDisplayFactory = consoleDisplayFactory;
     }
 
     @Override
     public void doOperation() {
-        String bookCheckOutInformation = library.bookCheckOutInformation();
+        String bookCheckOutInformation = bookLibrary.bookCheckOutInformation();
         ConsoleDisplay consoleDisplay = consoleDisplayFactory.getNewConsoleDisplay(bookCheckOutInformation);
         consoleDisplay.display();
     }

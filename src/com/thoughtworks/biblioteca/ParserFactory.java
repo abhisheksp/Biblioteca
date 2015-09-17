@@ -1,7 +1,5 @@
 package com.thoughtworks.biblioteca;
 
-import java.util.ArrayList;
-
 public class ParserFactory {
 
     InputReader inputReader;

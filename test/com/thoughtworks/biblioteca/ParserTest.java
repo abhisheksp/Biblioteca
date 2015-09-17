@@ -108,7 +108,7 @@ public class ParserTest {
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
-        assertEquals(CheckoutBookMenuOption.class, parser.parse("3").getClass());
+        assertEquals(CheckOutBookMenuOption.class, parser.parse("3").getClass());
     }
 
     @Test
@@ -186,7 +186,7 @@ public class ParserTest {
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
-        assertEquals(CheckoutBookMenuOption.class, parser.parse("3").getClass());
+        assertEquals(CheckOutBookMenuOption.class, parser.parse("3").getClass());
     }
 
     @Test

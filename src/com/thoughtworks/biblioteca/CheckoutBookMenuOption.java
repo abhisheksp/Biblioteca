@@ -1,13 +1,13 @@
 package com.thoughtworks.biblioteca;
 
-public class CheckoutBookMenuOption implements MenuOption {
+public class CheckOutBookMenuOption implements MenuOption {
 
     private InputReader inputReader;
     private Library library;
     private User currentUser;
     private ConsoleDisplayFactory consoleDisplayFactory;
 
-    public CheckoutBookMenuOption(InputReader inputReader, Library library, User currentUser, ConsoleDisplayFactory consoleDisplayFactory) {
+    public CheckOutBookMenuOption(InputReader inputReader, Library library, User currentUser, ConsoleDisplayFactory consoleDisplayFactory) {
         this.inputReader = inputReader;
         this.library = library;
         this.currentUser = currentUser;

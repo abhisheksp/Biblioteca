@@ -13,8 +13,8 @@ public class UserInformationMenuOption implements MenuOption {
     @Override
     public void doOperation() {
         String userInformation = currentUser.format();
-        String columnHeaders = String.format("%-20s%-20s%-20s%-20s\n", "Library Number", "Number", "Email ID", "Phone Number")
-                + "------------------------------------------------------------------------\n";
+        String columnHeaders = String.format("%-20s%-20s%-30s%-20s\n", "Library Number", "Number", "Email ID", "Phone Number")
+                + "-----------------------------------------------------------------------------------\n";
         ConsoleDisplay consoleDisplay = consoleDisplayFactory.getNewConsoleDisplay(columnHeaders + userInformation);
         consoleDisplay.display();
     }

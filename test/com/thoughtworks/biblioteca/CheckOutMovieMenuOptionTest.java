@@ -67,7 +67,8 @@ public class CheckOutMovieMenuOptionTest {
         when(movieLibrary.checkOut(argumentCaptor.capture())).thenReturn(true);
         checkOutMovieMenuOption.doOperation();
 
-        assertEquals("Thank you! Enjoy the movie\n", outContent.toString());
+        assertEquals("Thank you! Enjoy the movie\n" +
+                "Thank you! Enjoy the movie\n", outContent.toString());
     }
 
     @Test
@@ -82,6 +83,7 @@ public class CheckOutMovieMenuOptionTest {
         when(movieLibrary.checkOut(argumentCaptor.capture())).thenReturn(false);
         checkOutMovieMenuOption.doOperation();
 
-        assertEquals("That movie is not available.\n", outContent.toString());
+        assertEquals("That movie is not available.\n" +
+                "That movie is not available.\n", outContent.toString());
     }
 }

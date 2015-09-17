@@ -17,6 +17,7 @@ public class CheckOutMovieMenuOption implements MenuOption{
     }
 
     public void doOperation() {
+        consoleDisplayFactory.getNewConsoleDisplay("Enter Movie Title : ").display();
         String movieName = inputReader.read();
         if (movieLibrary.checkOut(new Movie(movieName, UNKNOWN_YEAR, UNKNOWN_DIRECTOR, UNKNOWN_RATING)))
             consoleDisplayFactory.getNewConsoleDisplay("Thank you! Enjoy the movie").display();

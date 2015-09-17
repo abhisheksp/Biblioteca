@@ -68,7 +68,8 @@ public class CheckInBookMenuOptionTest {
         when(library.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(true);
         checkInBookMenuOption.doOperation();
 
-        assertEquals("Thank you for returning the book.\n", outContent.toString());
+        assertEquals("Enter Book Name : \n" +
+                "Thank you for returning the book.\n", outContent.toString());
     }
 
     @Test
@@ -84,6 +85,7 @@ public class CheckInBookMenuOptionTest {
         when(library.checkIn(argumentCaptor.capture(), userArgumentCaptor.capture())).thenReturn(false);
         checkInBookMenuOption.doOperation();
 
-        assertEquals("That is not a valid book to return.\n", outContent.toString());
+        assertEquals("Enter Book Name : \n" +
+                "That is not a valid book to return.\n", outContent.toString());
     }
 }

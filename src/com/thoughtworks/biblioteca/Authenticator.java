@@ -14,10 +14,10 @@ public class Authenticator {
     }
 
     public User authenticate(String libraryNumber, String password) {
-        int indexOfUser = users.indexOf(new User(libraryNumber, password, UNDEFINED_ROLE));
+        int indexOfUser = users.indexOf(new User(libraryNumber, password, UNDEFINED_ROLE, "", "", ""));
         if(indexOfUser != -1)
             return users.get(indexOfUser);
         consoleDisplayFactory.getNewConsoleDisplay("Invalid Login credentials!").display();
-        return new User("000-0000", "blacksheep", "guest");
+        return new User("", "", "guest", "", "", "");
     }
 }

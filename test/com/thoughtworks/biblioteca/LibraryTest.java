@@ -55,7 +55,7 @@ public class LibraryTest {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
         Library library = new Library(books, checkedOutBooks, bookUserHashMap);
-        User user = new User("222-2222", "juliusseizure", "user");
+        User user = new User("222-2222", "juliusseizure", "user", "", "", "");
 
         assertTrue(library.checkOut(new Book("Seven Minutes"), user));
     }
@@ -69,7 +69,7 @@ public class LibraryTest {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
         Library library = new Library(books, checkedOutBooks, bookUserHashMap);
-        User user = new User("222-2222", "juliusseizure", "user");
+        User user = new User("222-2222", "juliusseizure", "user", "", "", "");
 
         assertFalse(library.checkOut(new Book("Not Valid Stuff"), user));
     }
@@ -83,7 +83,7 @@ public class LibraryTest {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
         Library library = new Library(books, checkedOutBooks, bookUserHashMap);
-        User user = new User("222-2222", "juliusseizure", "user");
+        User user = new User("222-2222", "juliusseizure", "user", "", "", "");
 
         library.checkOut(new Book("Seven Minutes"), user);
 
@@ -99,7 +99,7 @@ public class LibraryTest {
         ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
         HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
         Library library = new Library(books, checkedOutBooks, bookUserHashMap);
-        User user = new User("222-2222", "juliusseizure", "user");
+        User user = new User("222-2222", "juliusseizure", "user", "", "", "");
 
         assertFalse(library.checkIn(new Book("Not Valid Stuff"), user));
     }
@@ -108,11 +108,11 @@ public class LibraryTest {
     public void shouldReturnBookCheckoutInformationWhenBookCheckoutInformationIsCalled() {
         Library library = new LibraryFactory().getDefaultLibrary();
 
-        library.checkOut(new Book("Seven Minutes"), new User("222-2222", "juliusseizure", "user"));
+        library.checkOut(new Book("Seven Minutes"), new User("222-2222", "juliusseizure", "user", "Julius Caesar", "julius@caesar.com", "888888888"));
 
-        assertEquals("Books Checkout Information\n" +
-                "--------------------------\n" +
-                "Book                          User                          \n" +
-                "Seven Minutes                 222-2222                      \n", library.bookCheckOutInformation());
+        assertEquals("Books Checkout Information\n" + "--------------------------\n" +
+                String.format("%-30s%-30s\n", "Book", "User") +
+                String.format("%-30s%-30s\n", "Seven Minutes", String.format("%-20s%-20s%-20s%-20s\n", "222-2222", "Julius Caesar", "julius@caesar.com", "888888888")),
+                library.bookCheckOutInformation());
     }
 }

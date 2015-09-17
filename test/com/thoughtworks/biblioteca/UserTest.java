@@ -9,52 +9,52 @@ public class UserTest {
 
     @Test
     public void shouldBeEqualtoItself() {
-        User user = new User("123-4567", "password", "user");
+        User user = new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999");
 
         assertEquals(user, user);
     }
 
     @Test
-    public void shouldBeEqualToAnotherUserWithSameCredentials(){
+    public void shouldBeEqualToAnotherUserWithSameCredentials() {
 
-        assertEquals(new User("123-4567", "password", "user"), new User("123-4567", "password", "user"));
+        assertEquals(new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999"), new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999"));
     }
 
     @Test
-    public void shouldNotBeEqualToAnotherUserWithDifferentCredentials(){
+    public void shouldNotBeEqualToAnotherUserWithDifferentCredentials() {
 
-        assertNotEquals(new User("123-4567", "password", "user"), new User("222-2222", "meh", "user"));
+        assertNotEquals(new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999"), new User("777-6666", "password", "user", "Harry Potter", "harry@saveme.com", "999999999"));
     }
 
     @Test
-    public void shouldNotBeEqualToNull(){
+    public void shouldNotBeEqualToNull() {
 
-        assertNotEquals(new User("123-4567", "password", "user"), null);
+        assertNotEquals(new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999"), null);
     }
 
     @Test
-    public void shouldNotBeEqualToNonUserEntity(){
+    public void shouldNotBeEqualToNonUserEntity() {
 
-        assertNotEquals(new User("123-4567", "password", "user"), "Definitely not a User");
+        assertNotEquals(new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999"), "Definitely not a User");
     }
 
     @Test
-    public void shouldHaveSameHashCodeAsAnotherUserWithSameCredentials(){
+    public void shouldHaveSameHashCodeAsAnotherUserWithSameCredentials() {
 
-        assertEquals(new User("123-4567", "password", "user").hashCode(), new User("123-4567", "password", "user").hashCode());
+        assertEquals(new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999").hashCode(), new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999").hashCode());
     }
 
     @Test
-    public void shouldReturnRoleWhenRoleIsCalled(){
-        User user = new User("123-4567", "password", "librarian");
+    public void shouldReturnRoleWhenRoleIsCalled() {
+        User user = new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999");
 
         assertEquals("librarian", user.role());
     }
 
     @Test
-    public void shouldReturnLibraryNumberWhenLibraryNumberIsCalled(){
-        User user = new User("123-4567", "password", "librarian");
+    public void shouldReturnFormattedUserContactInformationWhenFormatIsCalled() {
+        User user = new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999");
 
-        assertEquals("123-4567", user.libraryNumber());
+        assertEquals("666-6666            Voldemort           voldemort@killharry.com999999999           \n", user.format());
     }
 }

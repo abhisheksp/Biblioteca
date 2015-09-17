@@ -21,6 +21,6 @@ public class LogoutMenuOptionSpec {
 
         logoutMenuOption.doOperation();
 
-        assertEquals(new User("", "", "guest"), logoutMenuOption.currentUser());
+        assertEquals(new User("", "", "guest", "", "", ""), logoutMenuOption.currentUser());
     }
 }

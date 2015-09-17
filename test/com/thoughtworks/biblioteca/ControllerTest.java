@@ -24,7 +24,7 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        User user = new User("", "", "guest");
+        User user = new User("", "", "guest", "", "", "");
         Library library = mock(Library.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
@@ -49,7 +49,7 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        User user = new User("", "", "guest");
+        User user = new User("", "", "guest", "", "", "");
         Library library = mock(Library.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
@@ -74,7 +74,7 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        User user = new User("", "", "guest");
+        User user = new User("", "", "guest", "", "", "");
         Library library = mock(Library.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);
@@ -100,7 +100,7 @@ public class ControllerTest {
         ConsoleDisplay consoleDisplay = mock(ConsoleDisplay.class);
         InputReader inputReader = mock(InputReader.class);
         Parser parser = mock(Parser.class);
-        User user = new User("", "", "guest");
+        User user = new User("", "", "guest", "", "", "");
         Library library = mock(Library.class);
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         MainMenuFactory mainMenuFactory = mock(MainMenuFactory.class);

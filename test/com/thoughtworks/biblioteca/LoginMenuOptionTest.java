@@ -40,7 +40,7 @@ public class LoginMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         Authenticator authenticator = mock(Authenticator.class);
-        User user = new User("", "", "guest");
+        User user = new User("", "", "guest", "", "", "");
         LoginMenuOption loginMenuOption = new LoginMenuOption(authenticator, inputReader, consoleDisplayFactory, user);
 
         loginMenuOption.currentUser();

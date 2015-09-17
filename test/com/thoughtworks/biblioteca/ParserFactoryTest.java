@@ -10,7 +10,7 @@ public class ParserFactoryTest {
     public void shouldReturnNewParserWithPassedStatesWhenNewParserIsCalled(){
         Library library = new LibraryFactory().getDefaultLibrary();
         MovieLibrary movieLibrary = new MovieLibraryFactory().getDefaultMovieLibrary();
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest", "", "", "");
         ParserFactory parserFactory = new ParserFactory();
 
         assertEquals(Parser.class, parserFactory.getNewParser(library, movieLibrary, currentUser).getClass());

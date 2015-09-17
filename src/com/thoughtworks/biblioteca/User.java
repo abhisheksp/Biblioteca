@@ -5,11 +5,21 @@ public class User {
     private String libraryNumber;
     private String password;
     private String role;
+    private String name;
+    private String emailId;
+    private String phoneNumber;
 
-    public User(String libraryNumber, String password, String role) {
+    public User(String libraryNumber, String password, String role, String name, String emailId, String phoneNumber) {
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.role = role;
+        this.name = name;
+        this.emailId = emailId;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String format(){
+        return String.format("%-20s%-20s%-20s%-20s\n", this.libraryNumber, this.name, this.emailId, this.phoneNumber);
     }
 
     @Override
@@ -30,9 +40,5 @@ public class User {
 
     public String role() {
         return this.role;
-    }
-
-    public String libraryNumber() {
-        return this.libraryNumber;
     }
 }

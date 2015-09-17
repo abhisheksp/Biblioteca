@@ -6,7 +6,7 @@ public class LogoutMenuOption implements MenuOption{
 
     @Override
     public void doOperation(){
-        this.currentUser = new User("", "", "guest");
+        this.currentUser = new User("", "", "guest", "", "", "");
     }
 
     public User currentUser(){

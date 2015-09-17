@@ -31,7 +31,7 @@ public class Library {
         stringBuilder.append("--------------------------\n");
         stringBuilder.append(String.format("%-30s%-30s\n", "Book", "User"));
         for(Book book: checkedOutBooks)
-            stringBuilder.append(String.format("%-30s%-30s\n", book.name(), bookUserMap.get(book).libraryNumber()));
+            stringBuilder.append(String.format("%-30s%-30s\n", book.name(), bookUserMap.get(book).format()));
         return stringBuilder.toString();
     }
 

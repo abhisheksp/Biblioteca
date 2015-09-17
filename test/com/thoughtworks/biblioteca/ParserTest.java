@@ -13,7 +13,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -26,7 +26,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -39,7 +39,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -52,7 +52,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -65,7 +65,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("", "", "guest");
+        User currentUser = new User("", "", "guest", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -78,7 +78,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -91,7 +91,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -104,7 +104,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -117,7 +117,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -130,7 +130,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -143,7 +143,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "user");
+        User currentUser = new User("222-2222", "juliusseizure", "user", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -156,7 +156,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -169,7 +169,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -182,7 +182,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -195,7 +195,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -208,7 +208,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -221,7 +221,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -234,7 +234,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -247,7 +247,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "user");
+        User currentUser = new User("222-2222", "juliusseizure", "user", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -260,7 +260,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "user");
+        User currentUser = new User("222-2222", "juliusseizure", "user", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 
@@ -273,7 +273,7 @@ public class ParserTest {
         MovieLibrary movieLibrary = mock(MovieLibrary.class);
         InputReader inputReader =  mock(InputReader.class);
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
-        User currentUser = new User("222-2222", "juliusseizure", "librarian");
+        User currentUser = new User("222-2222", "juliusseizure", "librarian", "", "", "");
         Authenticator authenticator = mock(Authenticator.class);
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, currentUser, authenticator);
 

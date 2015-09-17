@@ -70,7 +70,7 @@ public class MainMenuFactoryTest {
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
 
-        assertEquals(mainMenu, mainMenuFactory.getMenu(new User("", "", "guest")));
+        assertEquals(mainMenu, mainMenuFactory.getMenu(new User("", "", "guest", "", "", "")));
     }
 
     @Test
@@ -87,7 +87,7 @@ public class MainMenuFactoryTest {
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
 
-        assertEquals(mainMenu, mainMenuFactory.getMenu(new User("222-2222", "juliusseizure", "user")));
+        assertEquals(mainMenu, mainMenuFactory.getMenu(new User("222-2222", "juliusseizure", "user", "", "", "")));
     }
 
     @Test
@@ -105,6 +105,6 @@ public class MainMenuFactoryTest {
         MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
         MainMenuFactory mainMenuFactory = new MainMenuFactory();
 
-        assertEquals(mainMenu, mainMenuFactory.getMenu(new User("222-2222", "juliusseizure", "librarian")));
+        assertEquals(mainMenu, mainMenuFactory.getMenu(new User("222-2222", "juliusseizure", "librarian", "", "", "")));
     }
 }

@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -101,5 +102,14 @@ public class LibraryTest {
         User user = new User("222-2222", "juliusseizure", "user");
 
         assertFalse(library.checkIn(new Book("Not Valid Stuff"), user));
+    }
+
+    @Test
+    public void shouldReturnBookCheckoutInformationWhenBookCheckoutInformationIsCalled(){
+        Library library = new LibraryFactory().getDefaultLibrary();
+
+        library.checkOut(new Book("Seven Minutes"), new User("222-2222", "juliusseizure", "user"));
+
+        assertEquals("blah", library.bookCheckOutInformation());
     }
 }

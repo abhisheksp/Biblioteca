@@ -25,6 +25,16 @@ public class Library {
         return stringBuilder.toString();
     }
 
+    public String bookCheckOutInformation(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Books Checkout Information\n");
+        stringBuilder.append("--------------------------\n");
+        stringBuilder.append(String.format("%-30s%-30s\n", "Book", "User"));
+        for(Book book: checkedOutBooks)
+            stringBuilder.append(String.format("%-30s%-30s\n", book.name(), bookUserMap.get(book).libraryNumber()));
+        return stringBuilder.toString();
+    }
+
     public boolean checkOut(Book book, User currentUser) {
         if (availableBooks.contains(book)) {
             int bookIndex = availableBooks.indexOf(book);

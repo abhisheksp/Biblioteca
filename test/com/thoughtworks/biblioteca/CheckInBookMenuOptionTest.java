@@ -32,7 +32,7 @@ public class CheckInBookMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
         User user = mock(User.class);
-        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
 
         checkInBookMenuOption.doOperation();
@@ -45,7 +45,7 @@ public class CheckInBookMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
         User user = mock(User.class);
-        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
@@ -60,7 +60,7 @@ public class CheckInBookMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
         User user = mock(User.class);
-        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
@@ -76,7 +76,7 @@ public class CheckInBookMenuOptionTest {
         InputReader inputReader = mock(InputReader.class);
         Library library = mock(Library.class);
         User user = mock(User.class);
-        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         CheckInBookMenuOption checkInBookMenuOption = new CheckInBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);

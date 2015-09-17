@@ -112,7 +112,7 @@ public class LibraryTest {
 
         assertEquals("Books Checkout Information\n" + "--------------------------\n" +
                 String.format("%-30s%-30s\n", "Book", "User") +
-                String.format("%-30s%-30s\n", "Seven Minutes", String.format("%-20s%-20s%-20s%-20s\n", "222-2222", "Julius Caesar", "julius@caesar.com", "888888888")),
+                String.format("%-30s%-30s\n", "Seven Minutes", String.format("%-20s%-20s%-30s%-20s\n", "222-2222", "Julius Caesar", "julius@caesar.com", "888888888")),
                 library.bookCheckOutInformation());
     }
 }

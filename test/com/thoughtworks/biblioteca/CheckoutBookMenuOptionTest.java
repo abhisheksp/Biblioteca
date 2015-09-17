@@ -33,7 +33,9 @@ public class CheckoutBookMenuOptionTest {
         User user = mock(User.class);
         ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
         CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library, user, consoleDisplayFactory);
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay("doesn't matter");
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         checkoutBookMenuOption.doOperation();
 
         verify(inputReader).read();
@@ -48,7 +50,9 @@ public class CheckoutBookMenuOptionTest {
         CheckoutBookMenuOption checkoutBookMenuOption = new CheckoutBookMenuOption(inputReader, library, user, consoleDisplayFactory);
         ArgumentCaptor<Book> argumentCaptor = ArgumentCaptor.forClass(Book.class);
         ArgumentCaptor<User> userArgumentCaptor = ArgumentCaptor.forClass(User.class);
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay("doesn't matter");
 
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(consoleDisplay);
         checkoutBookMenuOption.doOperation();
 
         verify(library).checkOut(argumentCaptor.capture(), userArgumentCaptor.capture());

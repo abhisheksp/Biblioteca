@@ -19,7 +19,7 @@ public class User {
     }
 
     public String format(){
-        return String.format("%-20s%-20s%-20s%-20s\n", this.libraryNumber, this.name, this.emailId, this.phoneNumber);
+        return String.format("%-20s%-20s%-30s%-20s\n", this.libraryNumber, this.name, this.emailId, this.phoneNumber);
     }
 
     @Override

@@ -55,6 +55,6 @@ public class UserTest {
     public void shouldReturnFormattedUserContactInformationWhenFormatIsCalled() {
         User user = new User("666-6666", "password", "librarian", "Voldemort", "voldemort@killharry.com", "999999999");
 
-        assertEquals("666-6666            Voldemort           voldemort@killharry.com999999999           \n", user.format());
+        assertEquals(String.format("%-20s%-20s%-30s%-20s\n", "666-6666", "Voldemort", "voldemort@killharry.com", "999999999"), user.format());
     }
 }

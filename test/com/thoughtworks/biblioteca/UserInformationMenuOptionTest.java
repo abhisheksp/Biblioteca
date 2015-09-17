@@ -21,4 +21,17 @@ public class UserInformationMenuOptionTest {
 
         verify(user).format();
     }
+
+    @Test
+    public void shouldCallConsoleDisplayFactoryGetNewConsoleDisplayWhenDoOperationIsCalled() {
+        User user = mock(User.class);
+        ConsoleDisplayFactory consoleDisplayFactory = mock(ConsoleDisplayFactory.class);
+        UserInformationMenuOption userInformationMenuOption = new UserInformationMenuOption(consoleDisplayFactory, user);
+
+        when(consoleDisplayFactory.getNewConsoleDisplay(anyString())).thenReturn(new ConsoleDisplay("blah"));
+        when(user.format()).thenReturn("doesn't matter");
+        userInformationMenuOption.doOperation();
+
+        verify(consoleDisplayFactory).getNewConsoleDisplay(anyString());
+    }
 }

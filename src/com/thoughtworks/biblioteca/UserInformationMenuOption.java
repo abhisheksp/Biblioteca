@@ -12,6 +12,8 @@ public class UserInformationMenuOption implements MenuOption {
 
     @Override
     public void doOperation() {
-        currentUser.format();
+        String userInformation = currentUser.format();
+        ConsoleDisplay consoleDisplay = consoleDisplayFactory.getNewConsoleDisplay(userInformation);
+        consoleDisplay.display();
     }
 }

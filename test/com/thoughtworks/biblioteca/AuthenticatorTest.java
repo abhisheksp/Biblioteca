@@ -14,7 +14,8 @@ public class AuthenticatorTest {
         users.add(new User("222-2222", "juliusseizure", "user"));
         users.add(new User("444-2222", "randomstuff", "user"));
         users.add(new User("888-2222", "morerandomstuff", "user"));
-        Authenticator authenticator = new Authenticator(users);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Authenticator authenticator = new Authenticator(users, consoleDisplayFactory);
 
         assertEquals(new User("222-2222", "juliusseizure", "user"), authenticator.authenticate("222-2222", "juliusseizure"));
     }
@@ -25,7 +26,8 @@ public class AuthenticatorTest {
         users.add(new User("222-2222", "juliusseizure", "user"));
         users.add(new User("444-2222", "randomstuff", "user"));
         users.add(new User("888-2222", "morerandomstuff", "user"));
-        Authenticator authenticator = new Authenticator(users);
+        ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
+        Authenticator authenticator = new Authenticator(users, consoleDisplayFactory);
 
         assertEquals(new User("000-0000", "blacksheep", "user"), authenticator.authenticate("123-4567", "notavalidpassword"));
     }

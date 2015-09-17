@@ -17,6 +17,10 @@ public class Book {
         this.name = name;
     }
 
+    public String name() {
+        return this.name;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) return true;

@@ -10,7 +10,7 @@ public class BibliotecaApplication {
         Library library = new LibraryFactory().getDefaultLibrary();
         ConsoleDisplayFactory consoleDisplayFactory = new ConsoleDisplayFactory();
         MovieLibrary movieLibrary = new MovieLibraryFactory().getDefaultMovieLibrary();
-        Authenticator authenticator = new Authenticator(getRegisteredUsers());
+        Authenticator authenticator = new Authenticator(getRegisteredUsers(), consoleDisplayFactory);
         User user = new User("", "", "guest");
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, user,authenticator);
         ArrayList<String> options = getOptions();

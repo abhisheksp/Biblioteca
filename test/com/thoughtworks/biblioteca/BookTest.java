@@ -42,4 +42,11 @@ public class BookTest {
     public void shouldHaveSameHashCodeComparingABookToAnotherBookWithSameCoordinates() {
         assertEquals(new Book("Brief History of Time", "Stephen Hawking", 1988), new Book("Brief History of Time", "Stephen Hawking", 1988));
     }
+
+    @Test
+    public void shouldReturnBookNameWhenNameIsCalled(){
+        Book book = new Book("Brief History of Time", "Stephen Hawking", 1988);
+
+        assertEquals("Brief History of Time", book.name());
+    }
 }

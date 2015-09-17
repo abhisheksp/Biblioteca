@@ -11,7 +11,7 @@ public class ParserFactory {
     public ParserFactory() {
         this.inputReader = new InputReaderFactory().getDefaultInputReader();
         this.consoleDisplayFactory = new ConsoleDisplayFactory();
-        this.authenticator = new Authenticator(getRegisteredUsers());
+        this.authenticator = new Authenticator(getRegisteredUsers(), consoleDisplayFactory);
     }
 
     public Parser getNewParser(Library library, MovieLibrary movieLibrary, User currentUser) {

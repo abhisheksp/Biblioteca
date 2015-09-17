@@ -3,17 +3,18 @@ package com.thoughtworks.biblioteca;
 public class Controller {
 
     WelcomeMessage welcomeMessage;
-    MainMenu mainMenu;
+
     ConsoleDisplayFactory consoleDisplayFactory;
+    MainMenuFactory mainMenuFactory;
     InputReader inputReader;
     Parser parser;
     User currentUser;
     Library library;
     MovieLibrary movieLibrary;
 
-    public Controller(WelcomeMessage welcomeMessage, MainMenu mainMenu, ConsoleDisplayFactory consoleDisplayFactory, InputReader inputReader, Parser parser, User currentUser, Library library, MovieLibrary movieLibrary) {
+    public Controller(WelcomeMessage welcomeMessage, MainMenuFactory mainMenuFactory, ConsoleDisplayFactory consoleDisplayFactory, InputReader inputReader, Parser parser, User currentUser, Library library, MovieLibrary movieLibrary) {
         this.welcomeMessage = welcomeMessage;
-        this.mainMenu = mainMenu;
+        this.mainMenuFactory = mainMenuFactory;
         this.consoleDisplayFactory = consoleDisplayFactory;
         this.inputReader = inputReader;
         this.parser = parser;
@@ -27,8 +28,7 @@ public class Controller {
         interactWithUser();
     }
 
-    public void interactWithUser() {
-        MainMenuFactory mainMenuFactory = new MainMenuFactory();
+    private void interactWithUser() {
         do {
             mainMenuFactory.getMenu(currentUser).displayMenuOptions();
             String input = inputReader.read();

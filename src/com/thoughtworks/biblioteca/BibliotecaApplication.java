@@ -12,22 +12,10 @@ public class BibliotecaApplication {
         MovieLibrary movieLibrary = new MovieLibraryFactory().getDefaultMovieLibrary();
         Authenticator authenticator = new Authenticator(getRegisteredUsers(), consoleDisplayFactory);
         User user = new User("", "", "guest");
+        MainMenuFactory mainMenuFactory = new MainMenuFactory();
         Parser parser = new Parser(inputReader, library, movieLibrary, consoleDisplayFactory, user,authenticator);
-        ArrayList<String> options = getOptions();
-        MainMenu mainMenu = new MainMenu(options, consoleDisplayFactory);
-        Controller controller = new Controller(welcomeMessage, mainMenu, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
+        Controller controller = new Controller(welcomeMessage, mainMenuFactory, consoleDisplayFactory, inputReader, parser, user, library, movieLibrary);
         controller.start();
-    }
-
-    private ArrayList<String> getOptions() {
-        ArrayList<String> options = new ArrayList<String>();
-        options.add("1. List Books");
-        options.add("2. Quit");
-        options.add("3. Checkout Book");
-        options.add("4. Checkin Book");
-        options.add("5. List Movies");
-        options.add("6. Checkout Movie");
-        return options;
     }
 
     private ArrayList<User> getRegisteredUsers() {

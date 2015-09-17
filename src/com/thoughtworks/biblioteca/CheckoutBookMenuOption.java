@@ -20,7 +20,7 @@ public class CheckoutBookMenuOption implements MenuOption {
         if (library.checkOut(new Book(bookName), currentUser)) {
             consoleDisplayFactory.getNewConsoleDisplay("Thank you! Enjoy the book").display();
         } else {
-            consoleDisplayFactory.getNewConsoleDisplay("That book is not available.");
+            consoleDisplayFactory.getNewConsoleDisplay("That book is not available.").display();
         }
     }
 }

@@ -16,6 +16,7 @@ public class CheckOutBookMenuOption implements MenuOption {
 
     @Override
     public void doOperation() {
+        consoleDisplayFactory.getNewConsoleDisplay("Enter Book Name : ").display();
         String bookName = inputReader.read();
         if (library.checkOut(new Book(bookName), currentUser)) {
             consoleDisplayFactory.getNewConsoleDisplay("Thank you! Enjoy the book").display();

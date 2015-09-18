@@ -6,7 +6,7 @@ public class WelcomeMessageFactory {
     private String welcomeMessage;
 
     public WelcomeMessageFactory() {
-        this.welcomeMessage = "Sup?";
+        this.welcomeMessage = "Welcome!";
     }
 
     public WelcomeMessage getDefaultWelcomeMessage() {

@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
+/* MovieLibrary has a list of movies and can do checkout operation and can format itself*/
 public class MovieLibrary {
 
     ArrayList<Movie> availableMovies;

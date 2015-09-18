@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* CheckOut Movie Menu Option does required delegations to perform movie checkout */
 public class CheckOutMovieMenuOption implements MenuOption{
 
     private final int UNKNOWN_YEAR = 0;

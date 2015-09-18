@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* UserInformationMenuOption has required dependencies which it delegates to display user information */
 public class UserInformationMenuOption implements MenuOption {
 
     private ConsoleDisplayFactory consoleDisplayFactory;

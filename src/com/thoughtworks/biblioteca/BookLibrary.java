@@ -3,7 +3,7 @@ package com.thoughtworks.biblioteca;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* BookLibrary has a list of books and can do checkin, checkout operations */
+/* BookLibrary has a list of books and can do checkIn, checkout operations and can format itself*/
 public class BookLibrary {
 
     ArrayList<Book> availableBooks;

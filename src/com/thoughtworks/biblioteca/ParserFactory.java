@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* ParserFactory manufactures a new Parser with passed dependencies as states */
 public class ParserFactory {
 
     InputReader inputReader;

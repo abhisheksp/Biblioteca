@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.HashMap;
 
+/* Parser takes in rawInput and returns a MenuOption based on the input */
 public class Parser {
 
     private InputReader inputReader;

@@ -1,9 +1,9 @@
 package com.thoughtworks.biblioteca;
 
+/* Controller has required dependencies to act as central unit to have interactive session with user */
 public class Controller {
 
     WelcomeMessage welcomeMessage;
-
     ConsoleDisplayFactory consoleDisplayFactory;
     MainMenuFactory mainMenuFactory;
     InputReader inputReader;

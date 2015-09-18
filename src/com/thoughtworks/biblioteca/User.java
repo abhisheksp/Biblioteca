@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* User has user details and can format itself */
 public class User {
 
     private String libraryNumber;

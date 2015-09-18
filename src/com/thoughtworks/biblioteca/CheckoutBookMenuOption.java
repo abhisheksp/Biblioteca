@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* CheckOut Book Menu Option does required delegations to perform book checkout */
 public class CheckOutBookMenuOption implements MenuOption {
 
     private InputReader inputReader;

@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* ListBooksMenuOption has booklibrary, consoleDisplayFactory which it delegates to list books */
 public class ListBooksMenuOption implements MenuOption{
 
     private BookLibrary bookLibrary;

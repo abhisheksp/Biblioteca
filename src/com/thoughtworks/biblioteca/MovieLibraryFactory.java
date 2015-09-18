@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
+/* MovieLibraryFactory manufactures a movie library with predefined set of movies */
 public class MovieLibraryFactory {
 
     ArrayList<Movie> movies;

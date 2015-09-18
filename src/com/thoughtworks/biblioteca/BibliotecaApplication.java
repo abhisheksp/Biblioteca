@@ -1,5 +1,6 @@
 package com.thoughtworks.biblioteca;
 
+/* Biblioteca Application provides the start point of the Application and delegates control to controller */
 public class BibliotecaApplication {
 
     public void run() {

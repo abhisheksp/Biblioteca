@@ -1,5 +1,7 @@
 package com.thoughtworks.biblioteca;
 
+/* Books Status Menu Option has book library which can give books checkout information and displayed
+via console display */
 public class BooksStatusMenuOption implements MenuOption{
 
     private BookLibrary bookLibrary;

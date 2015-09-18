@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
+/* MainMenuFactory manufactures a main menu based on the current user and returns it */
 public class MainMenuFactory {
 
     private MainMenu mainMenu;

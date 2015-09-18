@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
+/* Authenticator has a predefined list of users which it can authenticate */
 public class Authenticator {
 
     private String UNDEFINED_ROLE = "";

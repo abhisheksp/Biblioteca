@@ -2,6 +2,7 @@ package com.thoughtworks.biblioteca;
 
 import java.util.ArrayList;
 
+/* InputReader factory manufactures a default InputReader and returns it */
 public class AuthenticatorFactory {
 
     private ConsoleDisplayFactory consoleDisplayFactory;
